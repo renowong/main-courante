@@ -12,6 +12,7 @@ include_once("mc_top.php");
     $(document).ready(function () {
        
        loadtype("INC");
+       recap_mc("mcj");
        
             //submit form process
      $("#frm_mc").submit(function(event){
@@ -20,9 +21,10 @@ include_once("mc_top.php");
          var $form = $( this ),
          txt_horaire = $form.find( 'input[name="txt_horaire"]' ).val(),
          datej = $form.find( 'input[name="datej"]' ).val(),
-         slt_inter = $form.find( 'input[name="slt_inter"]' ).val(),
+         slt_inter = $('#slt_inter').val(),
          txt_designation = $('#txt_designation').val(),
          url = $form.attr( 'action' );
+         
 
          // Send the data using post and put the results in a div
          $.post( url, {
@@ -33,12 +35,20 @@ include_once("mc_top.php");
          } ,function(response) {
              readresponse(response);
              //alert(response);
+             recap_mc("mcj");
          },"xml");
          //});
          return false; 
      });
        
     });
+    
+    
+    function recap_mc(div) {
+        $("<div>").load("recap_mc.php", function(){
+            $("#"+div).html($(this));
+            });
+    }
     
     function readresponse(xml){
         $(xml).find("response").each(function(){
@@ -141,10 +151,6 @@ include_once("mc_top.php");
     </form>
     <hr />
     <div id="mcj">
-        <table border="1">
-            <tr><td>Type</td><td>Date/Heure</td><td>D&eacute;signation</td><td>Agent</td></tr>
-            <? print loadmcj(); ?>
-        </table>
     </div>
 </body>
 </html>
