@@ -18,7 +18,7 @@ $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
         exit();
     }
     
-    $query = "INSERT INTO `mc`.`mc` (`id_mc`, `id_type`, `id_agent`, `datetime`, `designation`, `update`) VALUES (NULL, '$type', '$id_agent', '$date $horaire', '$designation', CURRENT_TIMESTAMP)";
+    $query = "INSERT INTO `mc`.`mcd` (`id_mc`, `id_type`, `id_agent`, `datetime`, `designation`, `update`) VALUES (NULL, '$type', '$id_agent', '$date $horaire', '$designation', CURRENT_TIMESTAMP)";
     $mysqli->query($query);
     
     $affected_r = $mysqli->affected_rows;
