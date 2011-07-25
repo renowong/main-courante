@@ -45,7 +45,7 @@ include_once("mc_top.php");
     
     
     function recap_mc(div) {
-        $("<div>").load("recap_mc.php", function(){
+        $("<div>").load("recap_mc.php?id=1", function(){
             $("#"+div).html($(this));
             });
     }

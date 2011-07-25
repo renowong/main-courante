@@ -1,6 +1,6 @@
 <?php
 include_once("includes/global_vars.php");
-$id_mc = $_GET['id'];
+
 
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
     /* check connection */
@@ -10,19 +10,19 @@ $id_mc = $_GET['id'];
         exit();
     }
     
-    $response = "<table border='1'><tr><td>Date/Heure</td><td>Type</td><td>D&eacute;signation</td><td>Agent</td></tr>";
+    $listmc = "<table border='1'><tr><td>Date</td></tr>";
     
-    $query = "SELECT `mcd`.`datetime`, `mcd`.`designation`, `mcd`.`id_agent`, `type`.`code`, `type`.`type` FROM `mcd` INNER JOIN `type` ON `mcd`.`id_type` = `type`.`id_type` WHERE `mcd`.`id_mc` = '$id_mc' ORDER BY `datetime` ASC";
+    $query = "SELECT `mc`.`id_mc`,`mc`.`date` FROM `mc` ORDER BY `date` ASC";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
-            $response .= "<tr><td>".$row["datetime"]."</td><td>".$row["code"]." - ".$row["type"]."</td><td>".$row["designation"]."</td><td>".$row["id_agent"]."</td></tr>";
+            $listmc .= "<tr><td><a href='javascript:showmcd(".$row["id_mc"].");'>".$row["date"]."</a></td></tr>";
         }
         $result->free();
     }
     $mysqli->close();
     
-    $response .= "</table>";
-    print $response;    
+    $listmc .= "</table>";
+
     
 
 
