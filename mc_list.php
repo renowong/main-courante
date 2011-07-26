@@ -20,7 +20,7 @@ include_once("mc_list_top.php");
     </script>
 </head>
 <body>
-    <h1>Liste des MC</h1><button type="button" onclick="javascript:redirect2mc(0);">Créer une nouvelle mc</button>
+    <h1>Liste des MC</h1><button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
     <div id="list"><? print $listmc; ?></div>
     <hr/>
     <div id="mcd">
