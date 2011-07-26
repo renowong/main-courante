@@ -13,10 +13,14 @@ include_once("mc_list_top.php");
             $("#mcd").html($(this));
             });
         }
+        
+        function redirect2mc(edit){
+            window.location = "mc.php?edit="+edit;
+        }
     </script>
 </head>
 <body>
-    <h1>Liste des MC</h1>
+    <h1>Liste des MC</h1><button type="button" onclick="javascript:redirect2mc(0);">Créer une nouvelle mc</button>
     <div id="list"><? print $listmc; ?></div>
     <hr/>
     <div id="mcd">

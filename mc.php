@@ -24,7 +24,7 @@ include_once("mc_top.php");
             $_GET[decode(arguments[1])] = decode(arguments[2]);
         });
         
-       recap_mc("mcj",$_GET["edit"]);
+       recap_mc("mcj",$("#idmc").val());
        // end get variable
        
             //submit form process
@@ -33,6 +33,7 @@ include_once("mc_top.php");
          event.preventDefault();
          var $form = $( this ),
          txt_horaire = $form.find( 'input[name="txt_horaire"]' ).val(),
+         idmc = $form.find( 'input[name="idmc"]' ).val(),
          datej = $form.find( 'input[name="datej"]' ).val(),
          slt_inter = $('#slt_inter').val(),
          txt_designation = $('#txt_designation').val(),
@@ -42,13 +43,14 @@ include_once("mc_top.php");
          // Send the data using post and put the results in a div
          $.post( url, {
              txt_horaire: txt_horaire,
+             idmc: idmc,
              datej: datej,
              slt_inter: slt_inter,
              txt_designation: txt_designation
          } ,function(response) {
              readresponse(response);
              //alert(response);
-             recap_mc("mcj");
+             recap_mc("mcj",idmc);
          },"xml");
          //});
          return false; 
@@ -68,7 +70,7 @@ include_once("mc_top.php");
             var success = $(this).attr("success");
             //alert(success);
             var msg = $(this).attr("msg");
-            alert(msg);
+            //alert(msg);
             if(success==1){
                 $('#frm_mc').each(function(){
 	        this.reset();
@@ -120,6 +122,7 @@ include_once("mc_top.php");
                     Horaire :
                 </td>
                 <td>
+                    <input type="hidden" name="idmc" id="idmc" value="<? print $edit; ?>" />
                     <input type="hidden" name="datej" id="datej" value="<? print date("Y-m-d"); ?>" />
                     <input type="text" name="txt_horaire" value="<? print $time; ?>" size="5" maxlength="5"  min="" max="" accept=""/>
                 </td>
