@@ -1,5 +1,7 @@
 <?php
 include_once("includes/global_vars.php");
+
+
 $id_mc = $_GET['id'];
 
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);

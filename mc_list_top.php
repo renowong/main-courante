@@ -10,12 +10,12 @@ include_once("includes/global_vars.php");
         exit();
     }
     
-    $listmc = "<table border='1'><tr><td>Date</td></tr>";
+    $listmc = "<table border='1'><tr><td>Date</td><td>Actions</td></tr>";
     
-    $query = "SELECT `mc`.`id_mc`,`mc`.`date` FROM `mc` ORDER BY `date` ASC";
+    $query = "SELECT `mc`.`id_mc`,`mc`.`date` FROM `mc` ORDER BY `date` DESC LIMIT 7";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
-            $listmc .= "<tr><td><a href='javascript:showmcd(".$row["id_mc"].");'>".$row["date"]."</a></td></tr>";
+            $listmc .= "<tr><td><a href='javascript:showmcd(".$row["id_mc"].");'>".$row["date"]."</a></td><td><a href='mc.php?edit=".$row["id_mc"]."'>Editer</a></td></tr>";
         }
         $result->free();
     }

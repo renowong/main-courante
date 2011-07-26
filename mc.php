@@ -12,7 +12,20 @@ include_once("mc_top.php");
     $(document).ready(function () {
        
        loadtype("INC");
-       recap_mc("mcj");
+       
+       // begin get variable
+       var $_GET = {};
+        
+        document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+            function decode(s) {
+                return decodeURIComponent(s.split("+").join(" "));
+            }
+        
+            $_GET[decode(arguments[1])] = decode(arguments[2]);
+        });
+        
+       recap_mc("mcj",$_GET["edit"]);
+       // end get variable
        
             //submit form process
      $("#frm_mc").submit(function(event){
@@ -44,8 +57,8 @@ include_once("mc_top.php");
     });
     
     
-    function recap_mc(div) {
-        $("<div>").load("recap_mc.php?id=1", function(){
+    function recap_mc(div,id) {
+        $("<div>").load("recap_mc.php?id="+id, function(){
             $("#"+div).html($(this));
             });
     }
