@@ -1,12 +1,16 @@
 <?
 include_once("mc_top.php");
-
+include_once("includes/menu.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
     <title>title</title>
+    <!-- Stylesheets -->
+    <style type="text/css">@import url("css/menu.css");</style>
+    
+    <!-- Javascripts -->
     <script type="application/x-javascript" src="js/jquery.js"></script>
     <script type="application/x-javascript">
     $(document).ready(function () {
@@ -114,6 +118,7 @@ include_once("mc_top.php");
     </script>
 </head>
 <body>
+    <? print $menu; ?>
     <h1>Main Courante du <? print $date; ?></h1>
     <form method="post" id="frm_mc" action="submit_mc.php">
         <table>

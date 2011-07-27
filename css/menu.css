@@ -1,0 +1,29 @@
+.hovermenu ul{
+font: bold 13px arial;
+padding-left: 0;
+margin-left: 0;
+height: 20px;
+}
+
+.hovermenu ul li{
+list-style: none;
+display: inline;
+}
+
+.hovermenu ul li a{
+padding: 2px 0.5em;
+text-decoration: none;
+float: left;
+color: black;
+background-color: #FFF2BF;
+border: 2px solid #FFF2BF;
+}
+
+.hovermenu ul li a:hover{
+background-color: #FFE271;
+border-style: outset;
+}
+
+html>body .hovermenu ul li a:active{ /* Apply mousedown effect only to NON IE browsers */
+border-style: inset;
+}
