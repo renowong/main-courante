@@ -120,56 +120,72 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <h1>Main Courante du <? print $date; ?></h1>
-    <form method="post" id="frm_mc" action="submit_mc.php">
-        <table>
-            <tr>
-                <td>
-                    Horaire :
-                </td>
-                <td>
-                    <input type="hidden" name="idmc" id="idmc" value="<? print $edit; ?>" />
-                    <input type="hidden" name="datej" id="datej" value="<? print date("Y-m-d"); ?>" />
-                    <input type="text" name="txt_horaire" value="<? print $time; ?>" size="5" maxlength="5"  min="" max="" accept=""/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Code :
-                </td>
-                <td>
-                    <select name="slt_code" id="slt_code" onchange="loadtype(this.value)">
-                        <option value="INC">INC</option>
-                        <option value="SAP">SAP</option>
-                        <option value="ADC">ADC</option>
-                        <option value="OD">OD</option>
-                        <option value="DEB">DEB</option>
-                        <option value="FIN">FIN</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Type :
-                </td>
-                <td>
-                    <select name="slt_inter" id="slt_inter"></select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    D&eacute;signation :
-                </td>
-                <td>
-                    <textarea name="txt_designation" id="txt_designation" cols="40" rows="10" wrap="SOFT"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="reset" /> <input type="submit" value="Soumettre" />
-                </td>
-            </tr>
-        </table>    
-    </form>
+    <table border="1" width="100%">
+        <tr>
+            <td>
+                <form method="post" id="frm_mc" action="submit_mc.php">
+                    <table>
+                        <tr>
+                            <td>
+                                Horaire :
+                            </td>
+                            <td>
+                                <input type="hidden" name="idmc" id="idmc" value="<? print $edit; ?>" />
+                                <input type="hidden" name="datej" id="datej" value="<? print date("Y-m-d"); ?>" />
+                                <input type="text" name="txt_horaire" value="<? print $time; ?>" size="5" maxlength="5"  min="" max="" accept=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Code :
+                            </td>
+                            <td>
+                                <select name="slt_code" id="slt_code" onchange="loadtype(this.value)">
+                                    <option value="INC">INC</option>
+                                    <option value="SAP">SAP</option>
+                                    <option value="ADC">ADC</option>
+                                    <option value="OD">OD</option>
+                                    <option value="DEB">DEB</option>
+                                    <option value="FIN">FIN</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Type :
+                            </td>
+                            <td>
+                                <select name="slt_inter" id="slt_inter"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                D&eacute;signation :
+                            </td>
+                            <td>
+                                <textarea name="txt_designation" id="txt_designation" cols="40" rows="10" wrap="SOFT"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="reset" /> <input type="submit" value="Soumettre" />
+                            </td>
+                        </tr>
+                    </table>    
+                </form> 
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            Absence...
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    
     <hr />
     <div id="mcj">
     </div>
