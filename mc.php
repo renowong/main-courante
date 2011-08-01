@@ -120,6 +120,53 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <h1>Main Courante du <? print $date; ?></h1>
+    <table border="1">
+        <tr>
+            <td>V&eacute;hicule</td><td>Km D&eacute;part</td><td>Km Arriv&eacute;</td><td>Huile moteur</td><td>Huile frein</td><td>Radiateur</td><td>Batterie</td><td>Lavage</td><td>Plein</td>
+        </tr>
+        <tr>
+            <td>VSR</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td>VSAV</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td>VSAB</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td>FPT 1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td>FPT 2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td>CCF</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td>VTU</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td>MPR</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td>EMBARCATION</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <td>Indicatif</td><td>Observation / fenzy / Oxyg&eacute;ne</td>
+        </tr>
+        <tr>
+            <td>FPT 1</td><td><input type="text" size="100" maxlength="100" id="indic_fpt1" name="indic_fpt1" /></td>
+        </tr>
+        <tr>
+            <td>VSAV</td><td><input type="text" size="100" maxlength="100" id="indic_vsav" name="indic_vsav" /></td>
+        </tr>
+        <tr>
+            <td>VSAB</td><td><input type="text" size="100" maxlength="100" id="indic_vsab" name="indic_vsab" /></td>
+        </tr>
+    </table>
+    <hr/>
     <table border="1" width="100%">
         <tr>
             <td>
@@ -178,7 +225,62 @@ include_once("includes/menu.php");
                 <table>
                     <tr>
                         <td>
-                            Absence...
+                            Equipe de Permanence
+                        </td>
+                        <td>
+                            <select id="slt_eq" name="slt_eq"><option value="0">S&eacute;lectionner</option></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Chef &Eacute;quipe
+                        </td>
+                        <td>
+                            <select id="slt_chef" name="slt_chef"><option value="0">S&eacute;lectionner</option></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Adjoint
+                        </td>
+                        <td>
+                            <select id="slt_adj" name="slt_adj"><option value="0">S&eacute;lectionner</option></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Agents
+                        </td>
+                        <td>
+                            <select id="slt_agents" name="slt_agents"><option value="0">S&eacute;lectionner</option></select>
+                            <div id="list_agents" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Cong&eacute;s
+                        </td>
+                        <td>
+                            <select id="slt_conge" name="slt_conge"><option value="0">S&eacute;lectionner</option></select>
+                            <div id="list_conge" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Malades
+                        </td>
+                        <td>
+                            <select id="slt_malade" name="slt_malade"><option value="0">S&eacute;lectionner</option></select>
+                            <div id="list_malade" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Absents
+                        </td>
+                        <td>
+                            <select id="slt_absent" name="slt_absent"><option value="0">S&eacute;lectionner</option></select>
+                            <div id="list_absent" />
                         </td>
                     </tr>
                 </table>
