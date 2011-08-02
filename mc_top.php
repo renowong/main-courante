@@ -12,9 +12,46 @@ $date = getmcdate($edit);
 $date = rev_date($date);
 $time = date("H:i");
 
+function getexistingdata($id,$col){
+    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
+    $query = "SELECT `$col` FROM `mc` WHERE `id_mc` = '$id'";
+    $result = $mysqli->query($query);
+    $row = $result->fetch_assoc();
+    $output = $row[$col];
+    $mysqli->close();
+    return $output;    
+}
 
-function load_equipe(){
+function load_equipe($id){
+    $val = getexistingdata($id,"equipe");
+
+    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
+    $query = "SELECT `designation`,`id_equipe` FROM `equipes` ORDER BY `designation`";
+    $output = "<option value='0'>S&eacute;lectionner</option>";
+    if ($result = $mysqli->query($query)) {
+        while($row = $result->fetch_assoc()){
+            if($row['id_equipe']==$val){$selected=" selected";}else{$selected="";}
+            $output .= "<option value='".$row['id_equipe']."'$selected>".$row['designation']."</option>";
+        }
+        $result->free();
+    }
+    $mysqli->close();
+    return $output;
+}
+
+function load_agents(){
+    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
+    $query = "SELECT `agent`,`id_agent` FROM `agents` ORDER BY `agent`";
+    $output = "<option value='0'>S&eacute;lectionner</option>";
+    if ($result = $mysqli->query($query)) {
+        while($row = $result->fetch_assoc()){
+            $output .= "<option value='".$row['id_agent']."'>".$row['agent']."</option>";
+        }
+        $result->free();
+    }
+    $mysqli->close();
     
+    return $output;
 }
 
 function checkmcexist($today){

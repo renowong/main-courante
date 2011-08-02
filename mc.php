@@ -46,6 +46,8 @@ include_once("includes/menu.php");
 
          // Send the data using post and put the results in a div
          $.post( url, {
+             update: 1,
+             id_agent: 1,
              txt_horaire: txt_horaire,
              idmc: idmc,
              datej: datej,
@@ -114,6 +116,15 @@ include_once("includes/menu.php");
         //alert(output);
     }
     
+    function save_equipe(x){
+        idmc = $("#idmc").val();
+        //alert(idmc);
+        $.post( 'submit_mc.php', {
+             idmc: idmc,
+             update: 2,
+             id_agent: x
+         });
+    }
     
     </script>
 </head>
@@ -228,7 +239,7 @@ include_once("includes/menu.php");
                             Equipe de Permanence
                         </td>
                         <td>
-                            <select id="slt_eq" name="slt_eq"><option value="0">S&eacute;lectionner</option></select>
+                            <select id="slt_eq" name="slt_eq" onchange="javascript:save_equipe(this.value);"><? print load_equipe($edit); ?></select>
                         </td>
                     </tr>
                     <tr>
@@ -236,7 +247,7 @@ include_once("includes/menu.php");
                             Chef &Eacute;quipe
                         </td>
                         <td>
-                            <select id="slt_chef" name="slt_chef"><option value="0">S&eacute;lectionner</option></select>
+                            <select id="slt_chef" name="slt_chef"><? print load_agents(); ?></select>
                         </td>
                     </tr>
                     <tr>
@@ -244,7 +255,7 @@ include_once("includes/menu.php");
                             Adjoint
                         </td>
                         <td>
-                            <select id="slt_adj" name="slt_adj"><option value="0">S&eacute;lectionner</option></select>
+                            <select id="slt_adj" name="slt_adj"><? print load_agents(); ?></select>
                         </td>
                     </tr>
                     <tr>
@@ -252,7 +263,7 @@ include_once("includes/menu.php");
                             Agents
                         </td>
                         <td>
-                            <select id="slt_agents" name="slt_agents"><option value="0">S&eacute;lectionner</option></select>
+                            <select id="slt_agents" name="slt_agents"><? print load_agents(); ?></select>
                             <div id="list_agents" />
                         </td>
                     </tr>
@@ -261,7 +272,7 @@ include_once("includes/menu.php");
                             Cong&eacute;s
                         </td>
                         <td>
-                            <select id="slt_conge" name="slt_conge"><option value="0">S&eacute;lectionner</option></select>
+                            <select id="slt_conge" name="slt_conge"><? print load_agents(); ?></select>
                             <div id="list_conge" />
                         </td>
                     </tr>
@@ -270,7 +281,7 @@ include_once("includes/menu.php");
                             Malades
                         </td>
                         <td>
-                            <select id="slt_malade" name="slt_malade"><option value="0">S&eacute;lectionner</option></select>
+                            <select id="slt_malade" name="slt_malade"><? print load_agents(); ?></select>
                             <div id="list_malade" />
                         </td>
                     </tr>
@@ -279,7 +290,7 @@ include_once("includes/menu.php");
                             Absents
                         </td>
                         <td>
-                            <select id="slt_absent" name="slt_absent"><option value="0">S&eacute;lectionner</option></select>
+                            <select id="slt_absent" name="slt_absent"><? print load_agents(); ?></select>
                             <div id="list_absent" />
                         </td>
                     </tr>
