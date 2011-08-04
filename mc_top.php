@@ -39,13 +39,16 @@ function load_equipe($id){
     return $output;
 }
 
-function load_agents(){
+function load_agents($id,$col){
+    if($id!==NULL){$val = getexistingdata($id,$col);};
+    
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
     $query = "SELECT `agent`,`id_agent` FROM `agents` ORDER BY `agent`";
     $output = "<option value='0'>S&eacute;lectionner</option>";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
-            $output .= "<option value='".$row['id_agent']."'>".$row['agent']."</option>";
+            if($row['id_agent']==$val){$selected=" selected";}else{$selected="";}
+            $output .= "<option value='".$row['id_agent']."'$selected>".$row['agent']."</option>";
         }
         $result->free();
     }
