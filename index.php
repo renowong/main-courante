@@ -24,7 +24,7 @@ include_once("index_top.php");
                 Mot de passe :
             </td>
             <td>
-                <input type="text" id="txt_password" name="txt_password" size="20" maxlength="20" />
+                <input type="password" id="txt_password" name="txt_password" size="20" maxlength="20" />
             </td>
         </tr>
         <tr>

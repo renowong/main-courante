@@ -23,7 +23,7 @@ function getexistingdata($id,$col){
 }
 
 function load_equipe($id){
-    $val = getexistingdata($id,"equipe");
+    $val = getexistingdata($id,"slt_eq");
 
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
     $query = "SELECT `designation`,`id_equipe` FROM `equipes` ORDER BY `designation`";

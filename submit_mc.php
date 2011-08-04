@@ -2,18 +2,6 @@
 include_once("includes/global_vars.php");
 
 
-/*
-updates are :
-1 - mc
-2 - equipe
-3 - chef
-4 - adjoint
-5 - agents
-6 - conges
-7 - malades
-8 - absents
-*/
-
 $update = $_POST["update"];
 $horaire = $_POST["txt_horaire"];
 $type = $_POST["slt_inter"];
@@ -21,20 +9,27 @@ $designation = htmlentities ($_POST["txt_designation"],ENT_QUOTES,'UTF-8');
 $idmc = $_POST["idmc"];
 $date = $_POST["datej"];
 $id_agent = $_POST["id_agent"];
+$val = $_POST["val"];
+$del = $_POST["del"];
 
 if($update=='1'){save_mc($horaire,$type,$designation,$idmc,$date,$id_agent);}
-if($update=='2'){save_agents($id_agent,'equipe',$idmc);}
-if($update=='3'){save_agents($id_agent,'chef',$idmc);}
-if($update=='4'){save_agents($id_agent,'adjoint',$idmc);}
-if($update=='5'){save_agents($id_agent,'agents',$idmc);}
-if($update=='-5'){del_agents($id_agent,'agents',$idmc);}
-if($update=='6'){save_agents($id_agent,'conges',$idmc);}
-if($update=='-6'){del_agents($id_agent,'conges',$idmc);}
-if($update=='7'){save_agents($id_agent,'malades',$idmc);}
-if($update=='-7'){del_agents($id_agent,'malades',$idmc);}
-if($update=='8'){save_agents($id_agent,'absents',$idmc);}
-if($update=='-8'){del_agents($id_agent,'absents',$idmc);}
+if($update=='slt_eq'){save_agents($id_agent,$update,$idmc,0);}
+if($update=='slt_chef'){save_agents($id_agent,$update,$idmc,0);}
+if($update=='slt_adj'){save_agents($id_agent,$update,$idmc,0);}
+if($update=='slt_agents'){save_agents($id_agent,$update,$idmc,1);}
+if($update=='slt_conges'){save_agents($id_agent,$update,$idmc,1);}
+if($update=='slt_malades'){save_agents($id_agent,$update,$idmc,1);}
+if($update=='slt_absents'){save_agents($id_agent,$update,$idmc,1);}
 
+if($del=='true'){del_agents($id_agent,$update,$idmc);}
+
+
+function save_indic($val,$col,$idmc){
+    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   
+    $query = "UPDATE `mc` SET `$col` = '$val' WHERE `id_mc` = '$idmc'";
+    $mysqli->query($query);
+    $mysqli->close();
+}
 
 function del_agents($val,$col,$idmc){
     $existing_val = get_list($idmc,$col);
@@ -48,29 +43,25 @@ function del_agents($val,$col,$idmc){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   
     $query = "UPDATE `mc` SET `$col` = '$list' WHERE `id_mc` = '$idmc'";
     $mysqli->query($query);
+    $mysqli->close();
 }
 
-function save_agents($val,$col,$idmc){
-    $existing_val = get_list($idmc,$col);
-    if($existing_val!==""){
-        $ar_val = explode(",",$existing_val);
-        if(in_array($val,$ar_val)){return false;}
-        $val=$existing_val.",".$val;
+function save_agents($val,$col,$idmc,$checkexisting){
+    if($checkexisting){
+        $existing_val = get_list($idmc,$col);
+        if($existing_val!==""){
+            $ar_val = explode(",",$existing_val);
+            if(in_array($val,$ar_val)){return false;}
+            $val=$existing_val.",".$val;
+        }
     }
     
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   
     $query = "UPDATE `mc` SET `$col` = '$val' WHERE `id_mc` = '$idmc'";
     $mysqli->query($query);
-    
-    $affected_r = $mysqli->affected_rows;
-   
     $mysqli->close();
     print $query;
-    if($affected_r>0){
-        print("<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE response SYSTEM 'response.dtd' [<!ENTITY eacute '&#233;'><!ENTITY agrave '&#224;'>]><response success='1' msg='Mise &agrave; jour r&eacute;ussie'></response>");
-    }else{
-        print("<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE response SYSTEM 'response.dtd' [<!ENTITY eacute '&#233;'><!ENTITY agrave '&#224;'>]><response success='0' msg='Erreur de connexion &agrave; la base de donn&eacute;es'></response>"); 
-    }
+
 }
 
 function get_list($id,$col){

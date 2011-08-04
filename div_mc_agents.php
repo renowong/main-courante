@@ -2,46 +2,19 @@
 
 include_once("includes/global_vars.php");
 
-/*
-updates are :
-1 - MC
-2 - equipe
-3 - chef
-4 - adjoint
-5 - agents
-6 - conges
-7 - malades
-8 - absents
-*/
 
 $id = $_GET['mc'];
-$colnum = $_GET['colnum'];
-switch($colnum){
-    case 5:
-        $update = 'agents';
-    break;
-    case 6:
-        $update = 'conges';
-    break;
-    case 7:
-        $update = 'malades';
-    break;
-    case 8:
-        $update = 'absents';
-    break;
-}
+$col = $_GET['col'];
 
-$val = get_list($id,$update);
+$val = get_list($id,$col);
 if($val!==""){
 $ar_val = explode(",",$val);
     foreach($ar_val as &$v){
         $list .= "- ".div_list($v);
-        $list .= " <a href='javascript:save_equipe(\"$v\",\"-$colnum\")'>X</a><br/>";
+        $list .= " <a href='javascript:save_equipe(\"$col\",\"$v\",\"true\")'>X</a><br/>";
     }
     print $list;  
 }
-
-
 
 function div_list($id){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
