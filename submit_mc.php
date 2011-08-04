@@ -1,7 +1,15 @@
 <?
 include_once("includes/global_vars.php");
 
+/*
+ $update type
+ 1 - save_mc
+ 2 - save_agents
+ 3 - save_info
+*/
 
+$list = $_POST["list"];
+$col = $_POST["col"];
 $update = $_POST["update"];
 $horaire = $_POST["txt_horaire"];
 $type = $_POST["slt_inter"];
@@ -12,19 +20,19 @@ $id_agent = $_POST["id_agent"];
 $val = $_POST["val"];
 $del = $_POST["del"];
 
-if($update=='1'){save_mc($horaire,$type,$designation,$idmc,$date,$id_agent);}
-if($update=='slt_eq'){save_agents($id_agent,$update,$idmc,0);}
-if($update=='slt_chef'){save_agents($id_agent,$update,$idmc,0);}
-if($update=='slt_adj'){save_agents($id_agent,$update,$idmc,0);}
-if($update=='slt_agents'){save_agents($id_agent,$update,$idmc,1);}
-if($update=='slt_conges'){save_agents($id_agent,$update,$idmc,1);}
-if($update=='slt_malades'){save_agents($id_agent,$update,$idmc,1);}
-if($update=='slt_absents'){save_agents($id_agent,$update,$idmc,1);}
-
-if($del=='true'){del_agents($id_agent,$update,$idmc);}
+if($del=='true'){
+    del_agents($id_agent,$col,$idmc);
+}else{
+    if($update=='1'){save_mc($horaire,$type,$designation,$idmc,$date,$id_agent);}
+    if($update=='2'){save_agents($id_agent,$col,$idmc,$list);}
+    if($update=='3'){save_info($val,$col,$idmc);}
+}
 
 
-function save_indic($val,$col,$idmc){
+
+
+
+function save_info($val,$col,$idmc){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   
     $query = "UPDATE `mc` SET `$col` = '$val' WHERE `id_mc` = '$idmc'";
     $mysqli->query($query);
@@ -60,7 +68,7 @@ function save_agents($val,$col,$idmc,$checkexisting){
     $query = "UPDATE `mc` SET `$col` = '$val' WHERE `id_mc` = '$idmc'";
     $mysqli->query($query);
     $mysqli->close();
-    print $query;
+    //print $query;
 
 }
 
@@ -85,10 +93,6 @@ function save_mc($horaire,$type,$designation,$idmc,$date,$id_agent){
    
     $mysqli->close();
     //print $query;
-    if($affected_r>0){
-        print("<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE response SYSTEM 'response.dtd' [<!ENTITY eacute '&#233;'><!ENTITY agrave '&#224;'>]><response success='1' msg='Mise &agrave; jour r&eacute;ussie'></response>");
-    }else{
-        print("<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE response SYSTEM 'response.dtd' [<!ENTITY eacute '&#233;'><!ENTITY agrave '&#224;'>]><response success='0' msg='Erreur de connexion &agrave; la base de donn&eacute;es'></response>"); 
-    }
+
 }
 ?>

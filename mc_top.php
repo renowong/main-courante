@@ -93,4 +93,14 @@ function getmcdate($id){
     return $date;
 }
 
+function getdata($field,$id){
+    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
+    $query = "SELECT `$field` FROM `mc` WHERE `id_mc` = '$id'";
+    $result = $mysqli->query($query);
+    $row = $result->fetch_assoc();
+    $output = $row[$field];
+    $mysqli->close();
+    return $output;
+}
+
 ?>
