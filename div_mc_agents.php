@@ -20,6 +20,15 @@ switch($colnum){
     case 5:
         $update = 'agents';
     break;
+    case 6:
+        $update = 'conges';
+    break;
+    case 7:
+        $update = 'malades';
+    break;
+    case 8:
+        $update = 'absents';
+    break;
 }
 
 $val = get_list($id,$update);

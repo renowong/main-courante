@@ -17,6 +17,9 @@ include_once("includes/menu.php");
        
        loadtype("INC");
        loaddivagents('list_agents',$("#idmc").val(),5);
+       loaddivagents('list_conges',$("#idmc").val(),6);
+       loaddivagents('list_malades',$("#idmc").val(),7);
+       loaddivagents('list_absents',$("#idmc").val(),8);
        
        // begin get variable
        var $_GET = {};
@@ -131,8 +134,11 @@ include_once("includes/menu.php");
              update: update,
              id_agent: x
          });
-        //alert(update);
+        
         loaddivagents('list_agents',$("#idmc").val(),5);
+        loaddivagents('list_conges',$("#idmc").val(),6);
+        loaddivagents('list_malades',$("#idmc").val(),7);
+        loaddivagents('list_absents',$("#idmc").val(),8);
     }
     
     
@@ -286,8 +292,12 @@ include_once("includes/menu.php");
                             Cong&eacute;s
                         </td>
                         <td>
-                            <select id="slt_conge" name="slt_conge"><? print load_agents(); ?></select>
-                            <div id="list_conge" />
+                            <select id="slt_conge" name="slt_conge" onchange="javascript:save_equipe(this.value,6);this.selectedIndex=0;"><? print load_agents(); ?></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2'>
+                            <div id="list_conges" />
                         </td>
                     </tr>
                     <tr>
@@ -295,8 +305,12 @@ include_once("includes/menu.php");
                             Malades
                         </td>
                         <td>
-                            <select id="slt_malade" name="slt_malade"><? print load_agents(); ?></select>
-                            <div id="list_malade" />
+                            <select id="slt_malade" name="slt_malade" onchange="javascript:save_equipe(this.value,7);this.selectedIndex=0;"><? print load_agents(); ?></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2'>
+                            <div id="list_malades" />
                         </td>
                     </tr>
                     <tr>
@@ -304,8 +318,12 @@ include_once("includes/menu.php");
                             Absents
                         </td>
                         <td>
-                            <select id="slt_absent" name="slt_absent"><? print load_agents(); ?></select>
-                            <div id="list_absent" />
+                            <select id="slt_absent" name="slt_absent" onchange="javascript:save_equipe(this.value,8);this.selectedIndex=0;"><? print load_agents(); ?></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2'>
+                            <div id="list_absents" />
                         </td>
                     </tr>
                 </table>

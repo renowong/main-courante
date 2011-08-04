@@ -28,7 +28,12 @@ if($update=='3'){save_agents($id_agent,'chef',$idmc);}
 if($update=='4'){save_agents($id_agent,'adjoint',$idmc);}
 if($update=='5'){save_agents($id_agent,'agents',$idmc);}
 if($update=='-5'){del_agents($id_agent,'agents',$idmc);}
-
+if($update=='6'){save_agents($id_agent,'conges',$idmc);}
+if($update=='-6'){del_agents($id_agent,'conges',$idmc);}
+if($update=='7'){save_agents($id_agent,'malades',$idmc);}
+if($update=='-7'){del_agents($id_agent,'malades',$idmc);}
+if($update=='8'){save_agents($id_agent,'absents',$idmc);}
+if($update=='-8'){del_agents($id_agent,'absents',$idmc);}
 
 
 function del_agents($val,$col,$idmc){
