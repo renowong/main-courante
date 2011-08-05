@@ -166,10 +166,10 @@ include_once("includes/menu.php");
     <h1>Main Courante du <? print $date; ?></h1>
     <table border="1">
         <tr>
-            <td>V&eacute;hicule</td><td>Km D&eacute;part</td><td>Km Arriv&eacute;</td><td>Huile moteur</td><td>Huile frein</td><td>Radiateur</td><td>Batterie</td><td>Lavage</td><td>Plein</td>
+            <th>V&eacute;hicule</th><th>Km D&eacute;part</th><th>Km Arriv&eacute;</th><th>Huile moteur</th><th>Huile frein</th><th>Radiateur</th><th>Batterie</th><th>Lavage</th><th>Plein</th>
         </tr>
         <tr>
-            <td>VSR</td>
+            <th>VSR</th>
             <td><input type="text" size="5" maxlength="5" id="vsr_kmd" name="vsr_kmd" value="<? print getdata('vsr_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="vsr_kma" name="vsr_kma" value="<? print getdata('vsr_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="vsr_mot" name="vsr_mot" value="<? print getdata('vsr_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -180,7 +180,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="vsr_plein" name="vsr_plein" value="<? print getdata('vsr_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>VSAV</td>
+            <th>VSAV</th>
             <td><input type="text" size="5" maxlength="5" id="vsav_kmd" name="vsav_kmd" value="<? print getdata('vsav_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="vsav_kma" name="vsav_kma" value="<? print getdata('vsav_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="vsav_mot" name="vsav_mot" value="<? print getdata('vsav_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -191,7 +191,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="vsav_plein" name="vsav_plein" value="<? print getdata('vsav_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>VSAB</td>
+            <th>VSAB</th>
             <td><input type="text" size="5" maxlength="5" id="vsab_kmd" name="vsab_kmd" value="<? print getdata('vsab_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="vsab_kma" name="vsab_kma" value="<? print getdata('vsab_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="vsab_mot" name="vsab_mot" value="<? print getdata('vsab_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -202,7 +202,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="vsab_plein" name="vsab_plein" value="<? print getdata('vsab_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>FPT 1</td>
+            <th>FPT 1</th>
             <td><input type="text" size="5" maxlength="5" id="fpt1_kmd" name="fpt1_kmd" value="<? print getdata('fpt1_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="fpt1_kma" name="fpt1_kma" value="<? print getdata('fpt1_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="fpt1_mot" name="fpt1_mot" value="<? print getdata('fpt1_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -213,7 +213,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="fpt1_plein" name="fpt1_plein" value="<? print getdata('fpt1_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>FPT 2</td>
+            <th>FPT 2</th>
             <td><input type="text" size="5" maxlength="5" id="fpt2_kmd" name="fpt2_kmd" value="<? print getdata('fpt2_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="fpt2_kma" name="fpt2_kma" value="<? print getdata('fpt2_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="fpt2_mot" name="fpt2_mot" value="<? print getdata('fpt2_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -224,7 +224,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="fpt2_plein" name="fpt2_plein" value="<? print getdata('fpt2_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>CCF</td>
+            <th>CCF</th>
             <td><input type="text" size="5" maxlength="5" id="ccf_kmd" name="ccf_kmd" value="<? print getdata('ccf_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="ccf_kma" name="ccf_kma" value="<? print getdata('ccf_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="ccf_mot" name="ccf_mot" value="<? print getdata('ccf_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -235,7 +235,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="ccf_plein" name="ccf_plein" value="<? print getdata('ccf_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>VTU</td>
+            <th>VTU</th>
             <td><input type="text" size="5" maxlength="5" id="vtu_kmd" name="vtu_kmd" value="<? print getdata('vtu_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="vtu_kma" name="vtu_kma" value="<? print getdata('vtu_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="vtu_mot" name="vtu_mot" value="<? print getdata('vtu_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -246,7 +246,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="vtu_plein" name="vtu_plein" value="<? print getdata('vtu_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>MPR</td>
+            <th>MPR</th>
             <td><input type="text" size="5" maxlength="5" id="mpr_kmd" name="mpr_kmd" value="<? print getdata('mpr_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="mpr_kma" name="mpr_kma" value="<? print getdata('mpr_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="mpr_mot" name="mpr_mot" value="<? print getdata('mpr_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -257,7 +257,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="mpr_plein" name="mpr_plein" value="<? print getdata('mpr_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>EMBARCATION</td>
+            <th>EMBARCATION</th>
             <td><input type="text" size="5" maxlength="5" id="emb_kmd" name="emb_kmd" value="<? print getdata('emb_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="emb_kma" name="emb_kma" value="<? print getdata('emb_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             <td><input type="text" size="5" maxlength="5" id="emb_mot" name="emb_mot" value="<? print getdata('emb_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
@@ -270,28 +270,28 @@ include_once("includes/menu.php");
     </table>
     <table border="1">
         <tr>
-            <td>Indicatif</td><td>Observation / fenzy / Oxyg&eacute;ne</td>
+            <th>Indicatif</th><th>Observation / fenzy / Oxyg&egrave;ne</th>
         </tr>
         <tr>
-            <td>FPT 1</td><td><input type="text" size="100" maxlength="100" id="indic_fpt1" name="indic_fpt1" value="<? print getdata('indic_fpt1',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
+            <th>FPT 1</th><td><input type="text" size="100" maxlength="100" id="indic_fpt1" name="indic_fpt1" value="<? print getdata('indic_fpt1',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>VSAV</td><td><input type="text" size="100" maxlength="100" id="indic_vsav" name="indic_vsav" value="<? print getdata('indic_vsav',$edit) ?>"  onblur="javascript:save_info(this.id,this.value)"/></td>
+            <th>VSAV</th><td><input type="text" size="100" maxlength="100" id="indic_vsav" name="indic_vsav" value="<? print getdata('indic_vsav',$edit) ?>"  onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
         <tr>
-            <td>VSAB</td><td><input type="text" size="100" maxlength="100" id="indic_vsab" name="indic_vsab" value="<? print getdata('indic_vsab',$edit) ?>"  onblur="javascript:save_info(this.id,this.value)"/></td>
+            <th>VSAB</th><td><input type="text" size="100" maxlength="100" id="indic_vsab" name="indic_vsab" value="<? print getdata('indic_vsab',$edit) ?>"  onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
     </table>
     <hr/>
-    <table border="1" width="100%">
+    <table>
         <tr>
             <td>
                 <form method="post" id="frm_mc" action="submit_mc.php">
                     <table>
                         <tr>
-                            <td>
+                            <th>
                                 Horaire :
-                            </td>
+                            </th>
                             <td>
                                 <input type="hidden" name="idmc" id="idmc" value="<? print $edit; ?>" />
                                 <input type="hidden" name="datej" id="datej" value="<? print date("Y-m-d"); ?>" />
@@ -299,9 +299,9 @@ include_once("includes/menu.php");
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <th>
                                 Code :
-                            </td>
+                            </th>
                             <td>
                                 <select name="slt_code" id="slt_code" onchange="loadtype(this.value)">
                                     <option value="INC">INC</option>
@@ -314,17 +314,17 @@ include_once("includes/menu.php");
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <th>
                                 Type :
-                            </td>
+                            </th>
                             <td>
                                 <select name="slt_inter" id="slt_inter"></select>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <th>
                                 D&eacute;signation :
-                            </td>
+                            </th>
                             <td>
                                 <textarea name="txt_designation" id="txt_designation" cols="40" rows="10" wrap="SOFT"></textarea>
                             </td>
@@ -340,33 +340,33 @@ include_once("includes/menu.php");
             <td>
                 <table>
                     <tr>
-                        <td>
+                        <th>
                             Equipe de Permanence
-                        </td>
+                        </th>
                         <td>
                             <select id="slt_eq" name="slt_eq" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_equipe($edit); ?></select>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <th>
                             Chef &Eacute;quipe
-                        </td>
+                        </th>
                         <td>
                             <select id="slt_chef" name="slt_chef" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_agents($edit,"slt_chef"); ?></select>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <th>
                             Adjoint
-                        </td>
+                        </th>
                         <td>
                             <select id="slt_adj" name="slt_adj" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_agents($edit,"slt_adj"); ?></select>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <th>
                             Agents
-                        </td>
+                        </th>
                         <td>
                             <select id="slt_agents" name="slt_agents" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
                         </td>
@@ -377,9 +377,9 @@ include_once("includes/menu.php");
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <th>
                             Cong&eacute;s
-                        </td>
+                        </th>
                         <td>
                             <select id="slt_conges" name="slt_conges" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
                         </td>
@@ -390,9 +390,9 @@ include_once("includes/menu.php");
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <th>
                             Malades
-                        </td>
+                        </th>
                         <td>
                             <select id="slt_malades" name="slt_malades" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
                         </td>
@@ -403,9 +403,9 @@ include_once("includes/menu.php");
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <th>
                             Absents
-                        </td>
+                        </th>
                         <td>
                             <select id="slt_absents" name="slt_absents" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
                         </td>

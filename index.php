@@ -6,6 +6,7 @@ include_once("index_top.php");
 <html>
 <head>
     <title>Main courante</title>
+    <style type="text/css">@import url("css/mc.css");</style>
 </head>
 <body>
     <h1>Main courante</h1>

@@ -9,7 +9,7 @@ include_once("includes/menu.php");
     <title>Liste des MC</title>
     <!-- Stylesheets -->
     <style type="text/css">@import url("css/menu.css");</style>
-    
+    <style type="text/css">@import url("css/mc.css");</style>
     <!-- Javascripts -->
     <script type="application/x-javascript" src="js/jquery.js"></script>
     <script type="application/x-javascript">
