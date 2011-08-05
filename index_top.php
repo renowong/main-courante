@@ -1,4 +1,5 @@
 <?
+session_destroy();
 session_start();
 include_once("includes/global_vars.php");
 

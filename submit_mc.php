@@ -18,7 +18,7 @@ $type = $_POST["slt_inter"];
 $designation = htmlentities ($_POST["txt_designation"],ENT_QUOTES,'UTF-8');
 $idmc = $_POST["idmc"];
 $date = $_POST["datej"];
-$id_agent = $_POST["id_agent"];
+//$id_agent = $_POST["id_agent"];
 $val = $_POST["val"];
 $del = $_POST["del"];
 $id_user = $_SESSION['id_user'];
@@ -26,7 +26,7 @@ $id_user = $_SESSION['id_user'];
 if($del=='true'){
     del_agents($id_agent,$col,$idmc);
 }else{
-    if($update=='1'){save_mc($horaire,$type,$designation,$idmc,$date,$id_agent);}
+    if($update=='1'){save_mc($horaire,$type,$designation,$idmc,$date,$id_user);}
     if($update=='2'){save_agents($id_agent,$col,$idmc,$list);}
     if($update=='3'){save_info($val,$col,$idmc);}
     if($update=='4'){del_mc($val,$id_user);}
@@ -93,9 +93,9 @@ function get_list($id,$col){
     return $output;
 }
 
-function save_mc($horaire,$type,$designation,$idmc,$date,$id_agent){
+function save_mc($horaire,$type,$designation,$idmc,$date,$id_user){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   
-    $query = "INSERT INTO `mc`.`mcd` (`id_mc`, `id_type`, `id_agent`, `datetime`, `designation`, `update`) VALUES ('$idmc', '$type', '$id_agent', '$date $horaire', '$designation', CURRENT_TIMESTAMP)";
+    $query = "INSERT INTO `mc`.`mcd` (`id_mc`, `id_type`, `id_agent`, `datetime`, `designation`, `update`) VALUES ('$idmc', '$type', '$id_user', '$date $horaire', '$designation', CURRENT_TIMESTAMP)";
     $mysqli->query($query);
     
     $affected_r = $mysqli->affected_rows;
