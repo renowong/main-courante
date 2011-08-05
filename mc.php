@@ -61,6 +61,7 @@ include_once("includes/menu.php");
              readresponse(response);
              //alert(response);
              recap_mc("mcj",idmc);
+             $('#txt_designation').val("");
          },"xml");
          //});
          return false; 
@@ -157,7 +158,19 @@ include_once("includes/menu.php");
          });
     }
 
-    
+    function del_mc(id){
+        var yesno = confirm("Etes vous sur de vouloir supprimer?");
+        if(yesno){
+            $.post( 'submit_mc.php', {
+                 update: 4,
+                 val: id
+             },
+            function(response) {
+                //alert(response);
+            });
+            $("#"+id).hide();
+        }
+    }
     
     </script>
 </head>

@@ -1,4 +1,5 @@
 <?
+session_start();
 include_once("includes/global_vars.php");
 
 /*
@@ -6,6 +7,7 @@ include_once("includes/global_vars.php");
  1 - save_mc
  2 - save_agents
  3 - save_info
+ 4 - del_mc
 */
 
 $list = $_POST["list"];
@@ -19,6 +21,7 @@ $date = $_POST["datej"];
 $id_agent = $_POST["id_agent"];
 $val = $_POST["val"];
 $del = $_POST["del"];
+$id_user = $_SESSION['id_user'];
 
 if($del=='true'){
     del_agents($id_agent,$col,$idmc);
@@ -26,11 +29,17 @@ if($del=='true'){
     if($update=='1'){save_mc($horaire,$type,$designation,$idmc,$date,$id_agent);}
     if($update=='2'){save_agents($id_agent,$col,$idmc,$list);}
     if($update=='3'){save_info($val,$col,$idmc);}
+    if($update=='4'){del_mc($val,$id_user);}
 }
 
 
 
-
+function del_mc($val,$user){
+    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   
+    $query = "UPDATE `mcd` SET `active` = '0', `id_agent` = '$user', `update` = CURRENT_TIMESTAMP WHERE `id_mcd` = '$val'";
+    $mysqli->query($query);
+    $mysqli->close();
+}
 
 function save_info($val,$col,$idmc){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   

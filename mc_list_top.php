@@ -7,7 +7,7 @@ include_once("includes/global_vars.php");
     $today = (date("Y-m-d"));
     $yesterday  = date ("Y-m-d", mktime(0, 0, 0, date("m")  , date("d")-1, date("Y")));
     
-    $listmc = "<table border='1'><tr><td>Date</td><td>Actions</td></tr>";
+    $listmc = "<table><tr><th>Date</th><th>Actions</th></tr>";
     
     $query = "SELECT `mc`.`id_mc`,`mc`.`date` FROM `mc` ORDER BY `date` DESC LIMIT 7";
     if ($result = $mysqli->query($query)) {

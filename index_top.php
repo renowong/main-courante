@@ -1,4 +1,5 @@
 <?
+session_start();
 include_once("includes/global_vars.php");
 
 if (isset($_POST['txt_login'])){
@@ -11,11 +12,16 @@ if (isset($_POST['txt_login'])){
 function login($l, $p){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
   
-    $query = "SELECT `id_user` FROM `users` WHERE `login` = '$l' AND `password` = '$p'";
+    $query = "SELECT `id_user`,`login`, `type` FROM `users` WHERE `login` = '$l' AND `password` = '$p'";
     if ($result = $mysqli->query($query)) {
         $num_rows = $result->num_rows;
-        if ($num_rows>0){$clear=true;}
+        if ($num_rows>0){
+            $clear=true;
+            $row = $result->fetch_assoc();
+            $_SESSION['usertype'] = $row["type"];
+            $_SESSION['id_user'] = $row["id_user"];
         }
+    }
     $result->free();
     $mysqli->close();
      

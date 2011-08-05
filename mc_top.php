@@ -1,6 +1,10 @@
 <?php
+session_start();
 include_once("includes/global_vars.php");
 include_once("includes/global_functions.php");
+
+//print "usertype : ".$_SESSION['usertype'];
+
 
 $edit = $_GET['edit'];
 if($edit==0){
@@ -8,9 +12,19 @@ if($edit==0){
     if($editid>0){$edit=$editid;}else{$edit = createmc(date("Y-m-d"));}
     }
 
-$date = getmcdate($edit);
-$date = rev_date($date);
+$sql_date = getmcdate($edit);
+$date = rev_date($sql_date);
 $time = date("H:i");
+
+if($_SESSION['usertype']!=='1'){checkrights($sql_date);}
+
+function checkrights($sql_date){
+    $today = (date("Y-m-d"));
+    $yesterday  = date ("Y-m-d", mktime(0, 0, 0, date("m")  , date("d")-1, date("Y")));
+    if($sql_date!==$today && $sql_date!==$yesterday){
+        header('Location: mc_list.php');
+    }
+}
 
 function getexistingdata($id,$col){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
