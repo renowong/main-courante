@@ -9,7 +9,7 @@ include_once("includes/menu.php");
     <title>title</title>
     <!-- Stylesheets -->
     <style type="text/css">@import url("css/menu.css");</style>
-    
+    <style type="text/css">@import url("css/mc.css");</style>
     <!-- Javascripts -->
     <script type="application/x-javascript" src="js/jquery.js"></script>
     <script type="application/x-javascript">
@@ -373,7 +373,7 @@ include_once("includes/menu.php");
                     </tr>
                     <tr>
                         <td colspan='2'>
-                            <div id="list_agents" />
+                            <div id="list_agents" class="list" />
                         </td>
                     </tr>
                     <tr>
@@ -386,7 +386,7 @@ include_once("includes/menu.php");
                     </tr>
                     <tr>
                         <td colspan='2'>
-                            <div id="list_conges" />
+                            <div id="list_conges" class="list" />
                         </td>
                     </tr>
                     <tr>
@@ -399,7 +399,7 @@ include_once("includes/menu.php");
                     </tr>
                     <tr>
                         <td colspan='2'>
-                            <div id="list_malades" />
+                            <div id="list_malades" class="list" />
                         </td>
                     </tr>
                     <tr>
@@ -412,7 +412,7 @@ include_once("includes/menu.php");
                     </tr>
                     <tr>
                         <td colspan='2'>
-                            <div id="list_absents" />
+                            <div id="list_absents" class="list" />
                         </td>
                     </tr>
                 </table>
