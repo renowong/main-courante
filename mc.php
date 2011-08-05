@@ -51,7 +51,6 @@ include_once("includes/menu.php");
          // Send the data using post and put the results in a div
          $.post( url, {
              update: 1,
-             id_agent: 1,
              txt_horaire: txt_horaire,
              idmc: idmc,
              datej: datej,
@@ -172,12 +171,17 @@ include_once("includes/menu.php");
         }
     }
     
+    function toggle(id){
+        $("#"+id).slideToggle();
+    }
+    
     </script>
 </head>
 <body>
     <? print $menu; ?>
     <h1>Main Courante du <? print $date; ?></h1>
-    <table border="1">
+    <a href='javascript:toggle("tbl_vehicule")'>Cacher/Montrer V&eacute;hicules</a>
+    <table id="tbl_vehicule">
         <tr>
             <th>V&eacute;hicule</th><th>Km D&eacute;part</th><th>Km Arriv&eacute;</th><th>Huile moteur</th><th>Huile frein</th><th>Radiateur</th><th>Batterie</th><th>Lavage</th><th>Plein</th>
         </tr>
@@ -282,7 +286,8 @@ include_once("includes/menu.php");
         </tr>
     </table>
     <br />
-    <table border="1">
+    <a href='javascript:toggle("tbl_indic")'>Cacher/Montrer Indic</a>
+    <table id="tbl_indic">
         <tr>
             <th>Indicatif</th><th>Observation / fenzy / Oxyg&egrave;ne</th>
         </tr>
