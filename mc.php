@@ -71,7 +71,7 @@ include_once("includes/menu.php");
     
     
     function recap_mc(div,id) {
-        $("<div>").load("recap_mc.php?id="+id, function(){
+        $("<div>").load("recap_mc.php?id="+id+"&action=true", function(){
             $("#"+div).html($(this));
             });
     }
@@ -281,6 +281,7 @@ include_once("includes/menu.php");
             <td><input type="text" size="5" maxlength="5" id="emb_plein" name="emb_plein" value="<? print getdata('emb_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
         </tr>
     </table>
+    <br />
     <table border="1">
         <tr>
             <th>Indicatif</th><th>Observation / fenzy / Oxyg&egrave;ne</th>
@@ -436,5 +437,7 @@ include_once("includes/menu.php");
     <hr />
     <div id="mcj">
     </div>
+    <br />
+    <br />
 </body>
 </html>
