@@ -6,7 +6,7 @@ include_once("includes/menu.php");
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-    <title>title</title>
+    <title>Saisie des MC</title>
     <!-- Stylesheets -->
     <style type="text/css">@import url("css/menu.css");</style>
     <style type="text/css">@import url("css/mc.css");</style>
@@ -62,8 +62,8 @@ include_once("includes/menu.php");
                 //alert(response);
                 recap_mc("mcj",idmc);
                 $('#txt_designation').val("");
-            },"xml");
-            //});
+            //},"xml");
+            });
             return false;
          }
      });
