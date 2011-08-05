@@ -16,6 +16,7 @@ include_once("includes/menu.php");
     $(document).ready(function () {
        
         loadtype("INC");
+        loaddivagents('list_chefs',$("#idmc").val(),'slt_chef_eq');
         loaddivagents('list_agents',$("#idmc").val(),'slt_agents');
         loaddivagents('list_conges',$("#idmc").val(),'slt_conges');
         loaddivagents('list_malades',$("#idmc").val(),'slt_malades');
@@ -155,7 +156,7 @@ include_once("includes/menu.php");
         function(response) {
             //alert(response);
         });
-        
+        loaddivagents('list_chefs',$("#idmc").val(),'slt_chef_eq');
         loaddivagents('list_agents',$("#idmc").val(),'slt_agents');
         loaddivagents('list_conges',$("#idmc").val(),'slt_conges');
         loaddivagents('list_malades',$("#idmc").val(),'slt_malades');
@@ -383,7 +384,7 @@ include_once("includes/menu.php");
                     </tr>
                     <tr>
                         <th>
-                            Chef &Eacute;quipe
+                            Chef de Garde
                         </th>
                         <td>
                             <select id="slt_chef" name="slt_chef" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_agents($edit,"slt_chef"); ?></select>
@@ -391,7 +392,7 @@ include_once("includes/menu.php");
                     </tr>
                     <tr>
                         <th>
-                            Adjoint
+                            Chef d'agr&eacute;e
                         </th>
                         <td>
                             <select id="slt_adj" name="slt_adj" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_agents($edit,"slt_adj"); ?></select>
@@ -399,7 +400,20 @@ include_once("includes/menu.php");
                     </tr>
                     <tr>
                         <th>
-                            Agents
+                            Chef &Eacute;quipe
+                        </th>
+                        <td>
+                            <select id="slt_chef_eq" name="slt_chef_eq" onchange="javascript:save_equipe(this.id,this.value,false,1);"><? print load_agents(); ?></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2'>
+                            <div id="list_chefs" class="list" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Equipiers
                         </th>
                         <td>
                             <select id="slt_agents" name="slt_agents" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
