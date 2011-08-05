@@ -39,34 +39,49 @@ include_once("includes/menu.php");
      $("#frm_mc").submit(function(event){
          // stop form from submitting normally
          event.preventDefault();
-         var $form = $( this ),
-         txt_horaire = $form.find( 'input[name="txt_horaire"]' ).val(),
-         idmc = $form.find( 'input[name="idmc"]' ).val(),
-         datej = $form.find( 'input[name="datej"]' ).val(),
-         slt_inter = $('#slt_inter').val(),
-         txt_designation = $('#txt_designation').val(),
-         url = $form.attr( 'action' );
-         
-
-         // Send the data using post and put the results in a div
-         $.post( url, {
-             update: 1,
-             txt_horaire: txt_horaire,
-             idmc: idmc,
-             datej: datej,
-             slt_inter: slt_inter,
-             txt_designation: txt_designation
-         } ,function(response) {
-             readresponse(response);
-             //alert(response);
-             recap_mc("mcj",idmc);
-             $('#txt_designation').val("");
-         },"xml");
-         //});
-         return false; 
+         if(check_mandatory_fields()){
+            var $form = $( this ),
+            txt_horaire = $form.find( 'input[name="txt_horaire"]' ).val(),
+            idmc = $form.find( 'input[name="idmc"]' ).val(),
+            datej = $form.find( 'input[name="datej"]' ).val(),
+            slt_inter = $('#slt_inter').val(),
+            txt_designation = $('#txt_designation').val(),
+            url = $form.attr( 'action' );
+            
+   
+            // Send the data using post and put the results in a div
+            $.post( url, {
+                update: 1,
+                txt_horaire: txt_horaire,
+                idmc: idmc,
+                datej: datej,
+                slt_inter: slt_inter,
+                txt_designation: txt_designation
+            } ,function(response) {
+                readresponse(response);
+                //alert(response);
+                recap_mc("mcj",idmc);
+                $('#txt_designation').val("");
+            },"xml");
+            //});
+            return false;
+         }
      });
        
     });
+    
+    function check_mandatory_fields(){
+        var equipe = $("#slt_eq").attr("selectedIndex");
+        var chef = $("#slt_chef").attr("selectedIndex");
+        var adjoint = $("#slt_adj").attr("selectedIndex");
+        //alert($("#list_agents").html().length);
+        if($("#list_agents").html().length==11 || equipe=='0' || chef=='0' || adjoint=='0'){
+            alert("Les champs obligatoires n'ont pas \351t\351 rempli");
+            return false;
+        }else{
+            return true;
+        }
+    }
     
     
     function recap_mc(div,id) {
