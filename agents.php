@@ -26,9 +26,10 @@ include_once("includes/menu.php");
         
         function add_new(){
             var name = $('#txt_agent').val();
+            var equipe = $('#slt_equipe').val();
             var url = 'submit_agent.php';
             // Send the data using post and put the results in a div
-            $.post( url, {agent: name},function(response) {
+            $.post( url, {agent: name,equipe: equipe},function(response) {
             //readresponse(response);
             //alert(response);
             recap_agents();
@@ -41,6 +42,13 @@ include_once("includes/menu.php");
     <? print $menu; ?>
     <h1>Liste des Agents</h1>
     <table border="1">
+        <tr>
+            <td colspan="2">Equipe : 
+                <select id="slt_equipe">
+                    <? print $list_equipe ?>
+                </select>
+            </td>
+        </tr>
         <tr>
             <td>
                 <input type="text" size="30" id="txt_agent" name="txt_agent" maxlength="30" /> <button id="btn_add" onclick="javascript:add_new();">Ajouter</button>

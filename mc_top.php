@@ -9,8 +9,13 @@ include_once("includes/global_functions.php");
 $edit = $_GET['edit'];
 if($edit==0){
     $editid = checkmcexist(date("Y-m-d"));
-    if($editid>0){$edit=$editid;}else{$edit = createmc(date("Y-m-d"));}
+    if($editid>0){
+        $edit=$editid;
+    }else{
+        $edit = createmc(date("Y-m-d"));
     }
+    header('Location:mc.php?edit='.$edit);
+}
 
 $sql_date = getmcdate($edit);
 $date = rev_date($sql_date);
@@ -53,7 +58,7 @@ function load_equipe($id){
     return $output;
 }
 
-function load_agents($id,$col){
+/*function load_agents($id,$col){
     if($id!==NULL){$val = getexistingdata($id,$col);};
     
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
@@ -69,7 +74,7 @@ function load_agents($id,$col){
     $mysqli->close();
     
     return $output;
-}
+}*/
 
 function checkmcexist($today){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);

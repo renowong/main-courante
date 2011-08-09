@@ -16,6 +16,8 @@ include_once("includes/menu.php");
     $(document).ready(function () {
        
         loadtype("INC");
+
+        load_agents($("#slt_eq").val(),'slt_chef',$("#idmc").val());
         loaddivagents('list_chefs',$("#idmc").val(),'slt_chef_eq');
         loaddivagents('list_agents',$("#idmc").val(),'slt_agents');
         loaddivagents('list_conges',$("#idmc").val(),'slt_conges');
@@ -189,6 +191,30 @@ include_once("includes/menu.php");
     
     function toggle(id){
         $("#"+id).slideToggle();
+    }
+    
+    function load_agents(eq,field,idmc){
+        $.get("includes/slt_agents.php", {equipe:eq,field:field,idmc:idmc},
+        function(response) {
+            //alert(response);
+            read_list_agent(response,field);
+        //},'xml');
+        });
+    }
+    
+    function read_list_agent(xml,field){
+        $("#"+field+"> option").remove();
+
+        $("<option value='0'>S\351lectionner</option>").appendTo("#"+field);
+
+        $(xml).find("agent").each(function(){
+            id = $(this).attr("id");
+            select = $(this).attr("select");
+            if(select=='1'){setselected=" selected='selected'";}else{setselected="";};
+            agent = $(this).text();
+            $("<option value='"+id+"'"+setselected+">"+agent+"</option>").appendTo("#"+field);
+
+        });
     }
     
     </script>
@@ -379,7 +405,7 @@ include_once("includes/menu.php");
                             Equipe de Permanence
                         </th>
                         <td>
-                            <select id="slt_eq" name="slt_eq" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_equipe($edit); ?></select>
+                            <select id="slt_eq" name="slt_eq" onchange="javascript:save_equipe(this.id,this.value,false,0);load_agents(this.value,'slt_chef',document.getElementById('idmc').value);"><? print load_equipe($edit); ?></select>
                         </td>
                     </tr>
                     <tr>
@@ -387,7 +413,7 @@ include_once("includes/menu.php");
                             Chef de Garde
                         </th>
                         <td>
-                            <select id="slt_chef" name="slt_chef" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_agents($edit,"slt_chef"); ?></select>
+                            <select id="slt_chef" name="slt_chef" onchange="javascript:save_equipe(this.id,this.value,false,0);"></select>
                         </td>
                     </tr>
                     <tr>
@@ -395,7 +421,7 @@ include_once("includes/menu.php");
                             Chef d'agr&eacute;e
                         </th>
                         <td>
-                            <select id="slt_adj" name="slt_adj" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_agents($edit,"slt_adj"); ?></select>
+                            <select id="slt_adj" name="slt_adj" onchange="javascript:save_equipe(this.id,this.value,false,0);"></select>
                         </td>
                     </tr>
                     <tr>
@@ -403,7 +429,7 @@ include_once("includes/menu.php");
                             Chef &Eacute;quipe
                         </th>
                         <td>
-                            <select id="slt_chef_eq" name="slt_chef_eq" onchange="javascript:save_equipe(this.id,this.value,false,1);"><? print load_agents(); ?></select>
+                            <select id="slt_chef_eq" name="slt_chef_eq" onchange="javascript:save_equipe(this.id,this.value,false,1);"></select>
                         </td>
                     </tr>
                     <tr>
@@ -416,7 +442,7 @@ include_once("includes/menu.php");
                             Equipiers
                         </th>
                         <td>
-                            <select id="slt_agents" name="slt_agents" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
+                            <select id="slt_agents" name="slt_agents" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"></select>
                         </td>
                     </tr>
                     <tr>
@@ -429,7 +455,7 @@ include_once("includes/menu.php");
                             Cong&eacute;s
                         </th>
                         <td>
-                            <select id="slt_conges" name="slt_conges" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
+                            <select id="slt_conges" name="slt_conges" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"></select>
                         </td>
                     </tr>
                     <tr>
@@ -442,7 +468,7 @@ include_once("includes/menu.php");
                             Malades
                         </th>
                         <td>
-                            <select id="slt_malades" name="slt_malades" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
+                            <select id="slt_malades" name="slt_malades" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"></select>
                         </td>
                     </tr>
                     <tr>
@@ -455,7 +481,7 @@ include_once("includes/menu.php");
                             Absents
                         </th>
                         <td>
-                            <select id="slt_absents" name="slt_absents" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"><? print load_agents(); ?></select>
+                            <select id="slt_absents" name="slt_absents" onchange="javascript:save_equipe(this.id,this.value,false,1);this.selectedIndex=0;"></select>
                         </td>
                     </tr>
                     <tr>
