@@ -18,6 +18,13 @@ include_once("includes/menu.php");
         loadtype("INC");
 
         load_agents($("#slt_eq").val(),'slt_chef',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_adj',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_chef_eq',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_agents',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_conges',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_malades',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_absents',$("#idmc").val());
+        
         loaddivagents('list_chefs',$("#idmc").val(),'slt_chef_eq');
         loaddivagents('list_agents',$("#idmc").val(),'slt_agents');
         loaddivagents('list_conges',$("#idmc").val(),'slt_conges');
@@ -158,6 +165,15 @@ include_once("includes/menu.php");
         function(response) {
             //alert(response);
         });
+        
+        load_agents($("#slt_eq").val(),'slt_chef',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_adj',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_chef_eq',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_agents',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_conges',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_malades',$("#idmc").val());
+        load_agents($("#slt_eq").val(),'slt_absents',$("#idmc").val());
+        
         loaddivagents('list_chefs',$("#idmc").val(),'slt_chef_eq');
         loaddivagents('list_agents',$("#idmc").val(),'slt_agents');
         loaddivagents('list_conges',$("#idmc").val(),'slt_conges');
@@ -196,7 +212,7 @@ include_once("includes/menu.php");
     function load_agents(eq,field,idmc){
         $.get("includes/slt_agents.php", {equipe:eq,field:field,idmc:idmc},
         function(response) {
-            //alert(response);
+            //alert(field);
             read_list_agent(response,field);
         //},'xml');
         });
@@ -405,7 +421,7 @@ include_once("includes/menu.php");
                             Equipe de Permanence
                         </th>
                         <td>
-                            <select id="slt_eq" name="slt_eq" onchange="javascript:save_equipe(this.id,this.value,false,0);load_agents(this.value,'slt_chef',document.getElementById('idmc').value);"><? print load_equipe($edit); ?></select>
+                            <select id="slt_eq" name="slt_eq" onchange="javascript:save_equipe(this.id,this.value,false,0);"><? print load_equipe($edit); ?></select>
                         </td>
                     </tr>
                     <tr>
