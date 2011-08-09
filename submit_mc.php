@@ -77,6 +77,13 @@ function save_agents($val,$col,$idmc,$checkexisting){
     $query = "UPDATE `mc` SET `$col` = '$val' WHERE `id_mc` = '$idmc'";
     $mysqli->query($query);
     $mysqli->close();
+    
+    if($col=="slt_eq"){ //reset all data
+        $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   
+        $query = "UPDATE `mc` SET `slt_chef` = '', `slt_adj` = '', `slt_chef_eq` = '', `slt_agents` = '', `slt_conges` = '', `slt_malades` = '', `slt_absents` = '' WHERE `id_mc` = '$idmc'";
+        $mysqli->query($query);
+        $mysqli->close();
+    }
     //print $query;
 
 }
