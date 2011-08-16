@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("includes/global_vars.php");
 
 
@@ -12,7 +13,7 @@ include_once("includes/global_vars.php");
     $query = "SELECT `mc`.`id_mc`,`mc`.`date` FROM `mc` ORDER BY `date` DESC LIMIT 7";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
-            if($row["date"]==$today || $row["date"]==$yesterday){$editlink="<a href='javascript:redirect2mc(".$row["id_mc"].")'>Editer</a>";}else{$editlink="";}
+            if($row["date"]==$today || $row["date"]==$yesterday || $_SESSION['usertype']=='1'){$editlink="<a href='javascript:redirect2mc(".$row["id_mc"].")'>Editer</a>";}else{$editlink="";}
             $listmc .= "<tr><td><a href='javascript:showmcd(".$row["id_mc"].");'>".$row["date"]."</a></td><td>$editlink</td></tr>";
         }
         $result->free();
