@@ -1,15 +1,15 @@
 <?
-include_once("mc_list_top.php");
+//include_once("agents_top.php");
 include_once("includes/menu.php");
 
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Liste des MC</title>
+    <title>Gestion des Agents</title>
     <!-- Stylesheets -->
     <style type="text/css">@import url("css/menu.css");</style>
-    <style type="text/css">@import url("css/mc.css");</style>
+    
     <!-- Javascripts -->
     <script type="application/x-javascript" src="js/jquery.js"></script>
     <script type="application/x-javascript">
@@ -23,28 +23,10 @@ include_once("includes/menu.php");
             window.location = "mc.php?edit="+edit;
         }
     </script>
-    
-        <!-- link calendar files  -->
-	<script language="JavaScript" src="js/calendar_eu.js"></script>
-	<link rel="stylesheet" href="css/calendar.css">
-            
 </head>
 <body>
     <? print $menu; ?>
-    <h1>Liste des MC</h1>
-    <form id="frm_control">
-        <button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
-        | Rechercher &agrave; partir de : <input type="text" size="10" maxlength="10" id="txt_search" />
-    <script language="JavaScript">
-	new tcal ({
-		// form name
-		'formname': 'frm_control',
-		// input name
-		'controlname': 'txt_search'
-	});
-
-	</script>
-    </form>
+    <h1>Liste des MC</h1><button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
     <div id="list"><? print $listmc; ?></div>
     <hr/>
     <div id="mcd">
