@@ -1,8 +1,8 @@
 <?
 include_once("mc_list_top.php");
 include_once("includes/menu.php");
-
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,6 +22,10 @@ include_once("includes/menu.php");
         function redirect2mc(edit){
             window.location = "mc.php?edit="+edit;
         }
+        
+        function redirect2date(date){
+            window.location = "mc_list.php?date="+date;
+        }
     </script>
     
         <!-- link calendar files  -->
@@ -34,7 +38,7 @@ include_once("includes/menu.php");
     <h1>Liste des MC</h1>
     <form id="frm_control">
         <button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
-        | Rechercher &agrave; partir de : <input type="text" size="10" maxlength="10" id="txt_search" />
+        | Rechercher &agrave; partir de : <input type="text" size="10" maxlength="10" id="txt_search" READONLY />
     <script language="JavaScript">
 	new tcal ({
 		// form name
@@ -44,6 +48,7 @@ include_once("includes/menu.php");
 	});
 
 	</script>
+    <button type="button" onclick="javascript:redirect2date(document.getElementById('txt_search').value);">Rechercher</button>
     </form>
     <div id="list"><? print $listmc; ?></div>
     <hr/>
