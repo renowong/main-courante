@@ -12,7 +12,7 @@ function list_agents($e,$s){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
     $response = "<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE response SYSTEM 'response.dtd' [<!ENTITY eacute '&#233;'><!ENTITY agrave '&#224;'>]>";
     $response .= "<response>";
-    $query = "SELECT `id_agent`,`agent` FROM `agents` WHERE `equipe` = '$e' ORDER BY `agent`";
+    $query = "SELECT `id_agent`,`agent` FROM `agents` WHERE `equipe` = '$e' AND `radie` = '0' ORDER BY `agent`";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
             if($s==$row['id_agent']){$selected="1";}else{$selected="0";}

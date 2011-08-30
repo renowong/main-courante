@@ -29,12 +29,26 @@ include_once("includes/menu.php");
             var equipe = $('#slt_equipe').val();
             var url = 'submit_agent.php';
             // Send the data using post and put the results in a div
-            $.post( url, {agent: name,equipe: equipe},function(response) {
+            $.post( url, {type: 'ajout', agent: name,equipe: equipe},function(response) {
             //readresponse(response);
             //alert(response);
             recap_agents();
          //},"xml");
             });
+        }
+        
+        function radier(id){
+            var yesno = confirm("Etes vous sur de vouloir radier cet agent?");
+        if(yesno){
+            $.post( 'submit_agent.php', {
+                 type: 'radiation',
+                 id: id
+             },
+            function(response) {
+                //alert(response);
+            });
+            $("#"+id).hide();
+        }
         }
     </script>
 </head>

@@ -8,11 +8,11 @@ print get_agents();
 function get_agents(){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
   
-    $query = "SELECT `agents`.`agent`, `equipes`.`designation` FROM `agents` INNER JOIN `equipes` ON `agents`.`equipe` = `equipes`.`id_equipe` ORDER BY `agent` ASC";
-    $output ="<table>";
+    $query = "SELECT `agents`.`id_agent`, `agents`.`agent`, `equipes`.`designation` FROM `agents` INNER JOIN `equipes` ON `agents`.`equipe` = `equipes`.`id_equipe` WHERE `agents`.`radie` = '0' ORDER BY `agent` ASC";
+    $output ="<table><th>Agent</th><th>Equipe</th><th>Action</th>";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
-            $output .= "<tr><td>".$row['agent']."</td><td>".$row['designation']."</td></tr>";
+            $output .= "<tr id='".$row['id_agent']."'><td>".$row['agent']."</td><td>".$row['designation']."</td><td><a href='javascript:radier(\"".$row['id_agent']."\")'>Radier</a></td></tr>";
         }
     }
     $result->free();
