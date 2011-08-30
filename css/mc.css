@@ -6,6 +6,21 @@ body{
     background-color : #167EAB;
 }
 
+h1 {
+    font-family : Arial;
+    font-size : 18px;
+}
+
+p {
+    font-family : Arial;
+    font-size : 12px;
+}
+
+a {
+    font-family : Arial;
+    font-size : 12px;
+}
+
 label{
     font-weight:bold;
 }
@@ -42,15 +57,25 @@ table {
 th {
     text-align : left;
     border : solid 1px;
+    padding : 5px;
+    font-family : Arial;
+    font-size : 12px;
+    font-weight : bold;
 }
 
 td {
     border : solid 1px;
     padding : 5px;
+    font-family : Arial;
+    font-size : 12px;
 }
 
 .list {
     border : solid 1px;
     padding : 3px;
     background : yellow;
+}
+
+.tbl_center {
+    margin-left:auto; margin-right:auto;
 }
