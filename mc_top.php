@@ -8,13 +8,25 @@ include_once("includes/global_functions.php");
 
 $edit = $_GET['edit'];
 if($edit==0){
+    $lastmc_closed = checkclose_lastmc();
     $editid = checkmcexist(date("Y-m-d"));
     if($editid>0){
         $edit=$editid;
+        header('Location:mc.php?edit='.$edit);
+        ob_flush();
     }else{
-        $edit = createmc(date("Y-m-d"));
+        if($lastmc_closed=='1'){
+            $edit = createmc(date("Y-m-d"));
+            header('Location:mc.php?edit='.$edit);
+            ob_flush();
+        }else{
+            
+            header('Location:mc_list.php?msg=notclosed');
+            ob_flush(); 
+            //print "test";
+        }
+        
     }
-    header('Location:mc.php?edit='.$edit);
 }
 
 $sql_date = getmcdate($edit);
@@ -58,24 +70,6 @@ function load_equipe($id){
     return $output;
 }
 
-/*function load_agents($id,$col){
-    if($id!==NULL){$val = getexistingdata($id,$col);};
-    
-    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
-    $query = "SELECT `agent`,`id_agent` FROM `agents` ORDER BY `agent`";
-    $output = "<option value='0'>S&eacute;lectionner</option>";
-    if ($result = $mysqli->query($query)) {
-        while($row = $result->fetch_assoc()){
-            if($row['id_agent']==$val){$selected=" selected";}else{$selected="";}
-            $output .= "<option value='".$row['id_agent']."'$selected>".$row['agent']."</option>";
-        }
-        $result->free();
-    }
-    $mysqli->close();
-    
-    return $output;
-}*/
-
 function checkmcexist($today){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
     $query = "SELECT `id_mc` FROM `mc` WHERE `mc`.`date` = '$today'";
@@ -97,6 +91,20 @@ function createmc($today){
     $mysqli->close();
     
     return $lastid;
+}
+
+function checkclose_lastmc(){
+    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
+    $query = "SELECT `mc`.`closed` FROM `mc` WHERE `mc`.`id_mc`=(SELECT MAX(`mc`.`id_mc`) FROM `mc`)";
+    
+    if ($result = $mysqli->query($query)) {
+        $row = $result->fetch_assoc();
+        $closed = $row["closed"];
+        $result->free();
+    }
+    $mysqli->close();
+    
+    return $closed;
 }
 
 function getmcdate($id){

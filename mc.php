@@ -77,7 +77,6 @@ include_once("includes/menu.php");
             return false;
          }
      });
-       
     });
     
     function check_mandatory_fields(){
@@ -257,7 +256,7 @@ include_once("includes/menu.php");
         }
         
     }
-    
+       
     </script>
 </head>
 <body>

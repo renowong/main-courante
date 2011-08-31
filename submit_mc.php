@@ -108,7 +108,13 @@ function save_mc($horaire,$type,$designation,$idmc,$date,$id_user){
     $affected_r = $mysqli->affected_rows;
    
     $mysqli->close();
-    //print $query;
+    
+    if($type=='74'){ //fin de service
+        $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);   
+        $query = "UPDATE `mc` SET `mc`.`closed`='1' WHERE `id_mc`='$idmc'";
+        $mysqli->query($query);
+        $mysqli->close();
+    }
 
 }
 ?>

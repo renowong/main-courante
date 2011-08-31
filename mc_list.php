@@ -13,6 +13,15 @@ include_once("includes/menu.php");
     <!-- Javascripts -->
     <script type="application/x-javascript" src="js/jquery.js"></script>
     <script type="application/x-javascript">
+    $(document).ready(function () {
+	
+    });
+    
+        function msg(m){
+        //<?print $msg;?>
+	alert(m);
+	}
+    
         function showmcd(id){
             $("<div>").load("recap_mc.php?id="+id, function(){
             $("#mcd").html($(this));
@@ -33,7 +42,7 @@ include_once("includes/menu.php");
 	<link rel="stylesheet" href="css/calendar.css">
             
 </head>
-<body>
+<body onload="javascript:msg('test');">
     <? print $menu; ?>
     <h1>Liste des MC</h1>
     <form id="frm_control">
