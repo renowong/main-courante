@@ -15,6 +15,16 @@ include_once("includes/menu.php");
     <script type="application/x-javascript">
     $(document).ready(function () {
 	
+	// message to user//
+	//  Get the parameter value after the # symbol
+	var url=document.URL.split('#')[1];
+	if(url == undefined){
+	    url = '';
+	}
+	if(url != ''){
+	    alert("Veuillez cl\364turer la pr\351c\351dente MC avant de continuer.");
+	}
+    
     });
     
         function msg(m){

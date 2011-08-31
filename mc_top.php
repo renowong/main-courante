@@ -21,7 +21,7 @@ if($edit==0){
             ob_flush();
         }else{
             
-            header('Location:mc_list.php?msg=notclosed');
+            header('Location:mc_list.php#notclosed');
             ob_flush(); 
             //print "test";
         }
