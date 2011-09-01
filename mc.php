@@ -30,7 +30,8 @@ include_once("includes/menu.php");
         loaddivagents('list_conges',$("#idmc").val(),'slt_conges');
         loaddivagents('list_malades',$("#idmc").val(),'slt_malades');
         loaddivagents('list_absents',$("#idmc").val(),'slt_absents');
-       
+        load_available_dates();
+        
        // begin get variable
        var $_GET = {};
         
@@ -78,6 +79,32 @@ include_once("includes/menu.php");
          }
      });
     });
+    
+    function load_available_dates(){
+        var today = new Date();
+        var yesterday = new Date();
+        yesterday.setDate(today.getDate()-1);
+        
+        var txt_today = today.getFullYear()+"-"+eval(today.getMonth()+1)+"-"+today.getDate();
+        var txt_yesterday = yesterday.getFullYear()+"-"+eval(yesterday.getMonth()+1)+"-"+yesterday.getDate();
+        var val_today = today.getDate()+"-"+eval(today.getMonth()+1)+"-"+today.getFullYear();
+        var val_yesterday = yesterday.getDate()+"-"+eval(yesterday.getMonth()+1)+"-"+yesterday.getFullYear();
+        //alert(txt_today);
+        
+        $('#slt_date').
+                append($("<option></option>").
+                attr("value",txt_today).
+                text(val_today));
+        $('#slt_date').
+                append($("<option></option>").
+                attr("value",txt_yesterday).
+                text(val_yesterday));
+    }
+    
+    function change_datej(val){
+        $("#datej").val(val);
+        //alert($("#datej").val());
+    }
     
     function check_mandatory_fields(){
         var equipe = $("#slt_eq").attr("selectedIndex");
@@ -398,6 +425,7 @@ include_once("includes/menu.php");
                             <td>
                                 <input type="hidden" name="idmc" id="idmc" value="<? print $edit; ?>" />
                                 <input type="hidden" name="datej" id="datej" value="<? print date("Y-m-d"); ?>" />
+                                <select id="slt_date" onchange="change_datej(this.value);"></select>
                                 <input type="text" name="txt_horaire" value="<? print $time; ?>" size="5" maxlength="5"  min="" max="" accept=""/>
                             </td>
                         </tr>
