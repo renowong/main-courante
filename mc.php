@@ -240,7 +240,7 @@ include_once("includes/menu.php");
     
     function toggle(id){
         $("#"+id).slideToggle();
-        alert(id);
+        //alert(id);
     }
     
     function load_agents(eq,field,idmc){
