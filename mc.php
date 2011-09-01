@@ -240,6 +240,7 @@ include_once("includes/menu.php");
     
     function toggle(id){
         $("#"+id).slideToggle();
+        alert(id);
     }
     
     function load_agents(eq,field,idmc){
@@ -289,7 +290,7 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <h1>Main Courante du <? print $date; ?></h1>
-    <a href='javascript:toggle("tbl_vehicule")'>Cacher/Montrer V&eacute;hicules</a>
+    <p><a href='javascript:toggle("tbl_vehicule")'><img class='imgshowhide' id='img_arrowup_veh' src='img/arrow_up.png'/><img class='imgshowhide' id='img_arrowdown_veh' src='img/arrow_down.png'/></a> V&eacute;hicules</p>
     <form id="premc">
         <table id="tbl_vehicule">
             <tr>
@@ -396,7 +397,7 @@ include_once("includes/menu.php");
             </tr>
         </table>
         <br />
-        <a href='javascript:toggle("tbl_indic")'>Cacher/Montrer Indic</a>
+        <p><a href='javascript:toggle("tbl_indic")'><img class='imgshowhide' id='img_arrowup_indic' src='img/arrow_up.png'/><img class='imgshowhide' id='img_arrowdown_indic' src='img/arrow_down.png'/></a> Indicatifs</p>
         <table id="tbl_indic">
             <tr>
                 <th>Indicatif</th><th>Observation / fenzy / Oxyg&egrave;ne</th>
