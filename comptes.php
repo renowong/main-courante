@@ -14,17 +14,17 @@ include_once("includes/menu.php");
     <!-- Javascripts -->
     <script type="application/x-javascript" src="js/jquery.js"></script>
     <script type="application/x-javascript">
-    $(document).ready(function () {
-
+    $(document).ready(function () {  
+        
        //submit form process
         $("#frm_compte").submit(function(event){
             // stop form from submitting normally
             event.preventDefault();       
             
-            if(check_passwords()){
+            if(check_passwords() && check_login()){
                var $form = $( this ),
-               txt_login = $form.find( 'input[name="txt_login"]' ).val(),
-               txt_password = $form.find( 'input[name="txt_password"]' ).val(),
+               txt_login = $('#txt_login').val(),
+               txt_password = $('#txt_password').val(),
                chk_active = $('#chk_active').is(':checked'),
                url = $form.attr( 'action' );
                if(chk_active){active=1;}else{active=0;};
@@ -35,8 +35,12 @@ include_once("includes/menu.php");
                    txt_password: txt_password,
                    active: active,
                    submit: 1
-               } ,function(response) {
-                   //alert(response);
+               } ,function() {
+                   alert("Utilisateur ajout\351.");
+                   $('#txt_login').val('');
+                   $('#txt_password').val('');
+                   $('#txt_password2').val('');
+                   $('#chk_active').prop("checked", true);
                });
                return false;
             }
@@ -44,10 +48,20 @@ include_once("includes/menu.php");
      });
         
         function check_passwords(){
-            if($("#txt_password").val()===$("#txt_password2").val()){
+            if($("#txt_password").val()===$("#txt_password2").val() && $("#txt_password").val().length !=0){
                 return true;
             } else {
+                alert("Les mots de passes ne correspondent pas ou sont vides");
                 return false;
+            }
+        }
+        
+        function check_login(){
+            if($("#txt_login").val()===''){
+                alert("Veuillez entrer un login.");
+                return false;
+            } else {
+                return true;
             }
         }
     </script>
@@ -55,14 +69,14 @@ include_once("includes/menu.php");
 </head>
 <body>
     <? print $menu; ?>
-    <form id="frm_compte" action="<?php print $_SERVER['PHP_SELF'];?>" method="POST">
+    <form id="frm_compte" action="<?php print $_SERVER['PHP_SELF'];?>" method="POST" autocomplete="OFF">
         <table>
         <tr>
             <td>
                 Compte Actif :
             </td>
             <td>
-                <input type="checkbox" id="chk_active" />
+                <input type="checkbox" id="chk_active" checked />
             </td>
         </tr>
         <tr>
