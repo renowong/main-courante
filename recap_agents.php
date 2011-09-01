@@ -12,7 +12,7 @@ function get_agents(){
     $output ="<table><th>Agent</th><th>Equipe</th><th>Action</th>";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
-            $output .= "<tr id='".$row['id_agent']."'><td>".$row['agent']."</td><td>".$row['designation']."</td><td><a href='javascript:radier(\"".$row['id_agent']."\")'>Radier</a></td></tr>";
+            $output .= "<tr id='".$row['id_agent']."'><td>".$row['agent']."</td><td>".$row['designation']."</td><td><a href='javascript:radier(\"".$row['id_agent']."\")'><img class='imgtrash' src='img/trash.png'> Radier</a></td></tr>";
         }
     }
     $result->free();

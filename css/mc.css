@@ -84,3 +84,7 @@ td {
 .tbl_center {
     margin-left:auto; margin-right:auto;
 }
+
+.imgtrash {
+    vertical-align : middle;
+}

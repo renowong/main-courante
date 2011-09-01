@@ -11,7 +11,7 @@ if($val!==""){
 $ar_val = explode(",",$val);
     foreach($ar_val as &$v){
         $list .= "- ".div_list($v);
-        $list .= " <a href='javascript:save_equipe(\"$col\",\"$v\",\"true\")'>X</a><br/>";
+        $list .= " <a href='javascript:save_equipe(\"$col\",\"$v\",\"true\")'><img class='imgtrash' src='img/trash.png'></a><br/>";
     }
     print $list;  
 }

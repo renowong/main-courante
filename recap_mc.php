@@ -13,7 +13,7 @@ $show_action = $_GET['action'];
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
             $formatted_designation = str_replace(array("\r\n", "\r", "\n"), '<br/>', trim($row["designation"]));
-            if($show_action){$action = "<a href='javascript:del_mc(\"".$row["id_mcd"]."\")'>X</a>";}
+            if($show_action){$action = "<a href='javascript:del_mc(\"".$row["id_mcd"]."\")'><img class='imgtrash' src='img/trash.png'></a>";}
             $response .= "<tr id='".$row["id_mcd"]."'><td>".$row["format_date"]."</td><td>".$row["code"]." - ".$row["type"]."</td><td>".$formatted_designation."</td><td>".$row["login_agent"]."</td><td style='text-align:center;'>$action</td><td>".$row["format_update"]."</td></tr>";
         }
         $result->free();
