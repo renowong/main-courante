@@ -479,11 +479,11 @@ include_once("includes/menu.php");
                             </td>
                         </tr>
                         <tr>
-                            <th>
-                                D&eacute;signation :
-                            </th>
-                            <td>
-                                <textarea name="txt_designation" id="txt_designation" cols="40" rows="10" wrap="SOFT"></textarea>
+                            <td colspan="2">
+                                <fieldset>
+                                    <legend style="font-family : Arial;font-size : 12px;font-weight : bold;">D&eacute;signation :</legend>
+                                    <textarea name="txt_designation" id="txt_designation" cols="50" rows="10" wrap="SOFT"></textarea>
+                                </fieldset>
                             </td>
                         </tr>
                         <tr>

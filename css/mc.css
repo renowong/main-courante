@@ -35,10 +35,12 @@ label{
 }
 
 textarea {
-    /*resize: none;*/
+    /*resize: none;
     padding : 3px;
     border : solid 1px;
-    background : #CCCCCC;
+    background : #CCCCCC;*/
+    border : none;
+    resize : none;
 }
 
 button {
