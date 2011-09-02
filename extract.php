@@ -14,17 +14,23 @@ include_once("includes/menu.php");
     <!-- Javascripts -->
     <script type="application/x-javascript" src="js/jquery.js"></script>
     <script type="application/x-javascript">
-	function sendtoextract(){
-	    event.preventDefault();
-	    var deb = $("#txt_beg").val();
-	    var end = $("#txt_end").val();
-	    
-	    if(deb.length==0 || end.length==0){
-		alert("Veuillez entrer une date de d\351but et une date de fin.");
-	    } else {
-		window.location = "extract_to_file.php?deb="+deb+"&end="+end;
-	    }
+    $(document).ready(function () {
+	var d = new Date();
+	alert(d.getFullYear());
+    });
+    
+        
+    function sendtoextract(){
+	event.preventDefault();
+	var deb = $("#txt_beg").val();
+	var end = $("#txt_end").val();
+	
+	if(deb.length==0 || end.length==0){
+	    alert("Veuillez entrer une date de d\351but et une date de fin.");
+	} else {
+	    window.location = "extract_to_file.php?deb="+deb+"&end="+end;
 	}
+    }
     </script>
         <!-- link calendar files  -->
 	<script language="JavaScript" src="js/calendar_eu.js"></script>
