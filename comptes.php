@@ -131,6 +131,11 @@ include_once("includes/menu.php");
         </tr>
         <tr>
             <td colspan="2">
+                <p style="font-style:italic">** Laisser les mots de passes vides pour garder le mot de passe actuel.</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
                <button type="button" onclick="javascript:newuser();"<? print $lock; ?>>Nouvel Utilisateur</button> <button type="button" onclick="javascript:window.location.reload();">RAZ</button> <button type="submit">Soumettre</button>
             </td>
         </tr>
