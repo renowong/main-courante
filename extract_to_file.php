@@ -52,7 +52,7 @@ function get_extract($cat,$deb,$end){
 
 function get_count($t,$deb,$end){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
-    $query = "SELECT COUNT(`mcd`.`id_type`) AS `count` FROM `mcd` WHERE `id_type`='$t' AND `datetime` BETWEEN '$deb' AND AddDate('$end',INTERVAL 1 DAY)";
+    $query = "SELECT COUNT(`mcd`.`id_type`) AS `count` FROM `mcd` WHERE `id_type`='$t' AND `active` = '1' AND `datetime` BETWEEN '$deb' AND AddDate('$end',INTERVAL 1 DAY)";
     $result = $mysqli->query($query);
     $row = $result->fetch_assoc();
     $count = $row["count"];
