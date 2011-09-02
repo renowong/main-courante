@@ -23,6 +23,7 @@ include_once("includes/menu.php");
             
             if(check_passwords() && check_login()){
                var $form = $( this ),
+               hid_id = $('#hid_id').val(),
                txt_login = $('#txt_login').val(),
                txt_password = $('#txt_password').val(),
                chk_active = $('#chk_active').is(':checked'),
@@ -31,16 +32,13 @@ include_once("includes/menu.php");
             
                // Send the data using post and put the results in a div
                $.post( url, {
+                   hid_id: hid_id, 
                    txt_login: txt_login,
                    txt_password: txt_password,
                    active: active,
                    submit: 1
                } ,function() {
-                   alert("Utilisateur ajout\351.");
-                   $('#txt_login').val('');
-                   $('#txt_password').val('');
-                   $('#txt_password2').val('');
-                   $('#chk_active').prop("checked", true);
+                   alert("Utilisateur ajout\351/mis a jour.");
                });
                return false;
             }
@@ -48,11 +46,20 @@ include_once("includes/menu.php");
      });
         
         function check_passwords(){
-            if($("#txt_password").val()===$("#txt_password2").val() && $("#txt_password").val().length !=0){
-                return true;
-            } else {
-                alert("Les mots de passes ne correspondent pas ou sont vides");
-                return false;
+            if($("#hid_id").val()==''){ //new user
+                if($("#txt_password").val()===$("#txt_password2").val() && $("#txt_password").val().length !=0){
+                    return true;
+                } else {
+                    alert("Les mots de passes ne correspondent pas ou sont vides");
+                    return false;   
+                }
+            }else{
+                if($("#txt_password").val()===$("#txt_password2").val()){
+                    return true;
+                } else {
+                    alert("Les mots de passes ne correspondent pas");
+                    return false;   
+                }
             }
         }
         
@@ -64,19 +71,33 @@ include_once("includes/menu.php");
                 return true;
             }
         }
+        
+        function newuser(){
+            $('#hid_id').val('');
+            $('#txt_login').val('');
+            $('#txt_password').val('');
+            $('#txt_password2').val('');
+            $('#chk_active').prop("checked", true);
+        }
+        
+        function loaduser(id){
+            alert(id);
+        }
     </script>
 
 </head>
 <body>
     <? print $menu; ?>
     <form id="frm_compte" action="<?php print $_SERVER['PHP_SELF'];?>" method="POST" autocomplete="OFF">
+        <input type="hidden" name="hid_id" id="hid_id" value="<? print $id_user; ?>" />
+        <? print $listusers; ?>
         <table>
         <tr>
             <td>
                 Compte Actif :
             </td>
             <td>
-                <input type="checkbox" id="chk_active" checked />
+                <input type="checkbox" id="chk_active"<? print $checkactive.$lock; ?> />
             </td>
         </tr>
         <tr>
@@ -84,7 +105,7 @@ include_once("includes/menu.php");
                 Login :
             </td>
             <td>
-                <input type="text" id="txt_login" name="txt_login" size="20" maxlength="20" />
+                <input type="text" id="txt_login" name="txt_login" size="20" maxlength="20" value="<? print $login; ?>"<? print $lock; ?> />
             </td>
         </tr>
         <tr>
@@ -105,7 +126,7 @@ include_once("includes/menu.php");
         </tr>
         <tr>
             <td colspan="2">
-                <button type="reset">Reset</button> <button type="submit">Soumettre</button>
+               <button type="button" onclick="javascript:newuser();"<? print $lock; ?>>Nouvel Utilisateur</button> <button type="button" onclick="javascript:window.location.reload();">RAZ</button> <button type="submit">Soumettre</button>
             </td>
         </tr>
     </table>
