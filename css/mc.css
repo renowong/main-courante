@@ -7,12 +7,13 @@ body{
 }
 
 h1 {
-    font-family : Arial;
+    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
     font-size : 18px;
+
 }
 
 p {
-    font-family : Arial;
+    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
     font-size : 12px;
 }
 
@@ -21,12 +22,12 @@ img {
 }
 
 form {
-    font-family : Arial;
+    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
     font-size : 12px;
 }
 
 a {
-    font-family : Arial;
+    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
     font-size : 12px;
 }
 
@@ -77,7 +78,7 @@ th {
 td {
     /*border : solid 1px;*/
     padding : 5px;
-    font-family : Arial;
+    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
     font-size : 12px;
 }
 

@@ -9,6 +9,7 @@ include_once("index_top.php");
     <style type="text/css">@import url("css/mc.css");</style>
 </head>
 <body style="text-align:center;">
+    <br/> <br/>
     <img src="img/logo.png"/>
     <h1>Main courante</h1>
     <form name="frm_login" action="index.php" method="POST" enctype="application/x-www-form-urlencoded">
