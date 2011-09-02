@@ -85,10 +85,25 @@ include_once("includes/menu.php");
         var yesterday = new Date();
         yesterday.setDate(today.getDate()-1);
         
-        var txt_today = today.getFullYear()+"-"+eval(today.getMonth()+1)+"-"+today.getDate();
-        var txt_yesterday = yesterday.getFullYear()+"-"+eval(yesterday.getMonth()+1)+"-"+yesterday.getDate();
-        var val_today = today.getDate()+"-"+eval(today.getMonth()+1)+"-"+today.getFullYear();
-        var val_yesterday = yesterday.getDate()+"-"+eval(yesterday.getMonth()+1)+"-"+yesterday.getFullYear();
+        /* needed to convert to human months*/
+        var month=new Array(12);
+        month[0]="1";
+        month[1]="2";
+        month[2]="3";
+        month[3]="4";
+        month[4]="5";
+        month[5]="6";
+        month[6]="7";
+        month[7]="8";
+        month[8]="9";
+        month[9]="10";
+        month[10]="11";
+        month[11]="12";
+        
+        var txt_today = today.getFullYear()+"-"+eval(month[today.getMonth()])+"-"+today.getDate();
+        var txt_yesterday = yesterday.getFullYear()+"-"+eval(month[yesterday.getMonth()])+"-"+yesterday.getDate();
+        var val_today = today.getDate()+"-"+eval(month[today.getMonth()])+"-"+today.getFullYear();
+        var val_yesterday = yesterday.getDate()+"-"+eval(month[yesterday.getMonth()])+"-"+yesterday.getFullYear();
         //alert(txt_today);
         
         $('#slt_date').
