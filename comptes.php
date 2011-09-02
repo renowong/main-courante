@@ -39,6 +39,7 @@ include_once("includes/menu.php");
                    submit: 1
                } ,function() {
                    alert("Utilisateur ajout\351/mis a jour.");
+                   window.location.reload();
                });
                return false;
             }
@@ -78,6 +79,7 @@ include_once("includes/menu.php");
             $('#txt_password').val('');
             $('#txt_password2').val('');
             $('#chk_active').prop("checked", true);
+            $('#txt_login').prop("disabled", false);
         }
         
         function loaduser(id_active,login){
@@ -86,6 +88,7 @@ include_once("includes/menu.php");
             var active = ar[1];
             $("#hid_id").val(id);
             $("#txt_login").val(login);
+            $('#txt_login').prop("disabled", true);
             if(active=='1'){$('#chk_active').prop("checked", true);}else{$('#chk_active').prop("checked", false);}
         }
     </script>
@@ -110,7 +113,7 @@ include_once("includes/menu.php");
                 Login :
             </td>
             <td>
-                <input type="text" id="txt_login" name="txt_login" size="20" maxlength="20" value="<? print $login; ?>"<? print $lock; ?> />
+                <input type="text" id="txt_login" name="txt_login" size="20" maxlength="20" value="<? print $login; ?>" disabled="disabled" />
             </td>
         </tr>
         <tr>
