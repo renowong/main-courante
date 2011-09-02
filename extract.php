@@ -16,7 +16,26 @@ include_once("includes/menu.php");
     <script type="application/x-javascript">
     $(document).ready(function () {
 	var d = new Date();
-	alert(d.getFullYear());
+	/* needed to convert to human months*/
+        var month=new Array(12);
+        month[0]="01";
+        month[1]="02";
+        month[2]="03";
+        month[3]="04";
+        month[4]="05";
+        month[5]="06";
+        month[6]="07";
+        month[7]="08";
+        month[8]="09";
+        month[9]="10";
+        month[10]="11";
+        month[11]="12";
+	
+	var deb = "01-"+month[d.getMonth()]+"-"+d.getFullYear();
+	var end = daysInMonth(month[d.getMonth()],d.getFullYear())+"-"+month[d.getMonth()]+"-"+d.getFullYear();
+	
+	$("#txt_beg").val(deb);
+	$("#txt_end").val(end);
     });
     
         
@@ -30,6 +49,10 @@ include_once("includes/menu.php");
 	} else {
 	    window.location = "extract_to_file.php?deb="+deb+"&end="+end;
 	}
+    }
+    
+    function daysInMonth(month,year) {
+	return new Date(year, month, 0).getDate();
     }
     </script>
         <!-- link calendar files  -->
