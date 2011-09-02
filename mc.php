@@ -32,8 +32,8 @@ include_once("includes/menu.php");
         loaddivagents('list_absents',$("#idmc").val(),'slt_absents');
         load_available_dates();
         
-        $("#tbl_indic_arrowdown").hide();
-        $("#tbl_vehicule_arrowdown").hide();
+        $("#div_tbl_indic_arrowdown").hide();
+        $("#div_tbl_vehicule_arrowdown").hide();
         
        // begin get variable
        var $_GET = {};
@@ -311,8 +311,9 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <h1>Main Courante du <? print $date; ?></h1>
-    <p><a href='javascript:toggle("tbl_vehicule")'><img class='imgshowhide' id='tbl_vehicule_arrowup' src='img/arrow_up.png'/><img class='imgshowhide' id='tbl_vehicule_arrowdown' src='img/arrow_down.png'/></a> V&eacute;hicules</p>
+    <p><a href='javascript:toggle("div_tbl_vehicule")'><img class='imgshowhide' id='div_tbl_vehicule_arrowup' src='img/arrow_up.png'/><img class='imgshowhide' id='div_tbl_vehicule_arrowdown' src='img/arrow_down.png'/></a> V&eacute;hicules</p>
     <form id="premc">
+        <div id="div_tbl_vehicule">
         <table id="tbl_vehicule">
             <tr>
                 <th>V&eacute;hicule</th><th>Km D&eacute;part</th><th>Km Arriv&eacute;</th><th>Huile moteur</th><th>Huile frein</th><th>Radiateur</th><th>Batterie</th><th>Lavage</th><th>Plein</th>
@@ -417,8 +418,10 @@ include_once("includes/menu.php");
                 <td><input type="text" size="5" maxlength="5" id="emb_plein" name="emb_plein" value="<? print getdata('emb_plein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
             </tr>
         </table>
-        <br />
-        <p><a href='javascript:toggle("tbl_indic")'><img class='imgshowhide' id='tbl_indic_arrowup' src='img/arrow_up.png'/><img class='imgshowhide' id='tbl_indic_arrowdown' src='img/arrow_down.png'/></a> Indicatifs</p>
+        </div>
+        
+        <p><a href='javascript:toggle("div_tbl_indic")'><img class='imgshowhide' id='div_tbl_indic_arrowup' src='img/arrow_up.png'/><img class='imgshowhide' id='div_tbl_indic_arrowdown' src='img/arrow_down.png'/></a> Indicatifs</p>
+        <div id="div_tbl_indic">
         <table id="tbl_indic">
             <tr>
                 <th>Indicatif</th><th>Observation / fenzy / Oxyg&egrave;ne</th>
@@ -432,7 +435,8 @@ include_once("includes/menu.php");
             <tr>
                 <th>VSAB</th><td><input type="text" size="100" maxlength="100" id="indic_vsab" name="indic_vsab" value="<? print getdata('indic_vsab',$edit) ?>"  onblur="javascript:save_info(this.id,this.value)"/></td>
             </tr>
-        </table>    
+        </table>
+        </div>
     </form>
     <hr/>
     <table>
