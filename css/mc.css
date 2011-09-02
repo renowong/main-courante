@@ -16,6 +16,10 @@ p {
     font-size : 12px;
 }
 
+img {
+    border:none;
+}
+
 form {
     font-family : Arial;
     font-size : 12px;
@@ -61,7 +65,7 @@ table {
 
 th {
     text-align : left;
-    border : solid 1px;
+    /*border : solid 1px;*/
     padding : 5px;
     font-family : Arial;
     font-size : 12px;
@@ -69,7 +73,7 @@ th {
 }
 
 td {
-    border : solid 1px;
+    /*border : solid 1px;*/
     padding : 5px;
     font-family : Arial;
     font-size : 12px;
@@ -91,4 +95,16 @@ td {
 
 .imgshowhide {
     vertical-align : middle;
+}
+
+#tbl_vehicule {
+    display: block;
+    width: 750px;
+    border : solid 1px;
+}
+
+#tbl_indic {
+    display: block;
+    width: 900px;
+    border : solid 1px;
 }

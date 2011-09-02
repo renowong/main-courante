@@ -32,6 +32,9 @@ include_once("includes/menu.php");
         loaddivagents('list_absents',$("#idmc").val(),'slt_absents');
         load_available_dates();
         
+        $("#tbl_indic_arrowdown").hide();
+        $("#tbl_vehicule_arrowdown").hide();
+        
        // begin get variable
        var $_GET = {};
         
@@ -254,8 +257,11 @@ include_once("includes/menu.php");
     }
     
     function toggle(id){
+        //var view = $("#"+id).is(":hidden");
         $("#"+id).slideToggle();
-        //alert(id);
+        $("#"+id+"_arrowup").slideToggle();
+        $("#"+id+"_arrowdown").slideToggle();
+        
     }
     
     function load_agents(eq,field,idmc){
@@ -305,7 +311,7 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <h1>Main Courante du <? print $date; ?></h1>
-    <p><a href='javascript:toggle("tbl_vehicule")'><img class='imgshowhide' id='img_arrowup_veh' src='img/arrow_up.png'/><img class='imgshowhide' id='img_arrowdown_veh' src='img/arrow_down.png'/></a> V&eacute;hicules</p>
+    <p><a href='javascript:toggle("tbl_vehicule")'><img class='imgshowhide' id='tbl_vehicule_arrowup' src='img/arrow_up.png'/><img class='imgshowhide' id='tbl_vehicule_arrowdown' src='img/arrow_down.png'/></a> V&eacute;hicules</p>
     <form id="premc">
         <table id="tbl_vehicule">
             <tr>
@@ -412,7 +418,7 @@ include_once("includes/menu.php");
             </tr>
         </table>
         <br />
-        <p><a href='javascript:toggle("tbl_indic")'><img class='imgshowhide' id='img_arrowup_indic' src='img/arrow_up.png'/><img class='imgshowhide' id='img_arrowdown_indic' src='img/arrow_down.png'/></a> Indicatifs</p>
+        <p><a href='javascript:toggle("tbl_indic")'><img class='imgshowhide' id='tbl_indic_arrowup' src='img/arrow_up.png'/><img class='imgshowhide' id='tbl_indic_arrowdown' src='img/arrow_down.png'/></a> Indicatifs</p>
         <table id="tbl_indic">
             <tr>
                 <th>Indicatif</th><th>Observation / fenzy / Oxyg&egrave;ne</th>
