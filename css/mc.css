@@ -97,14 +97,14 @@ td {
     vertical-align : middle;
 }
 
-#tbl_vehicule {
-    display: block;
-    width: 750px;
-    border : solid 1px;
-}
-
-#tbl_indic {
-    display: block;
-    width: 900px;
-    border : solid 1px;
-}
+/*#tbl_vehicule {*/
+/*    display: block;*/
+/*    width: 750px;*/
+/*    border : solid 1px;*/
+/*}*/
+/**/
+/*#tbl_indic {*/
+/*    display: block;*/
+/*    width: 1000px;*/
+/*    border : solid 1px;*/
+/*}*/
