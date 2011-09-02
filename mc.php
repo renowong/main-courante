@@ -305,7 +305,16 @@ include_once("includes/menu.php");
         }
         
     }
-       
+    
+    function checkclock(hour){
+        var regexp = new RegExp(/^[0-9]{2}[:]{1}[0-9]{2}$/);
+        if(!regexp.test(hour)){
+            alert("L'heure n'est pas acceptable, veuillez entrer un format hh:mm.");
+            $("#txt_horaire").focus();
+            $("#txt_horaire").select();
+        }
+        
+    }
     </script>
 </head>
 <body>
@@ -452,7 +461,7 @@ include_once("includes/menu.php");
                                 <input type="hidden" name="idmc" id="idmc" value="<? print $edit; ?>" />
                                 <input type="hidden" name="datej" id="datej" value="<? print date("Y-m-d"); ?>" />
                                 <select id="slt_date" onchange="change_datej(this.value);"></select>
-                                <input type="text" name="txt_horaire" value="<? print $time; ?>" size="5" maxlength="5"  min="" max="" accept=""/>
+                                <input type="text" name="txt_horaire" id="txt_horaire" value="<? print $time; ?>" size="5" maxlength="5" onblur="javascript:checkclock(this.value);"/>
                             </td>
                         </tr>
                         <tr>
