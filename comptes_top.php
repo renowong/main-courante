@@ -26,17 +26,17 @@ if($_POST['submit']=='1'){
     
 function getusers(){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
-    $query = "SELECT `users`.`id_user`,`users`.`login` FROM `users` ORDER BY `login`";
+    $query = "SELECT `users`.`id_user`,`users`.`login`,`users`.`active` FROM `users` ORDER BY `login`";
     $options = "<option value='0'>S&eacute;lectionner login</option>";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
-            $options .= "<option value='".$row["id_user"]."'>".$row["login"]."</option>";
+            $options .= "<option value='".$row["id_user"]."_".$row["active"]."'>".$row["login"]."</option>";
         }
         $result->free();
     }
     $mysqli->close();
 
-    return "<select id='slt_login' onchange='javascript:loaduser(this.value);'>$options</select>";
+    return "<select id='slt_login' onchange='javascript:loaduser(this.value,this.options[this.selectedIndex].text);'>$options</select>";
 }
 
 function insert($login,$password,$active){

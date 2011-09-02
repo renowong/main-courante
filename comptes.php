@@ -80,8 +80,13 @@ include_once("includes/menu.php");
             $('#chk_active').prop("checked", true);
         }
         
-        function loaduser(id){
-            alert(id);
+        function loaduser(id_active,login){
+            var ar = id_active.split("_");
+            var id = ar[0];
+            var active = ar[1];
+            $("#hid_id").val(id);
+            $("#txt_login").val(login);
+            if(active=='1'){$('#chk_active').prop("checked", true);}else{$('#chk_active').prop("checked", false);}
         }
     </script>
 
