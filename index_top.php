@@ -13,7 +13,7 @@ if (isset($_POST['txt_login'])){
 function login($l, $p){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
   
-    $query = "SELECT `id_user`,`login`, `type` FROM `users` WHERE `login` = '$l' AND `password` = '$p' AND `active` = '1'";
+    $query = "SELECT `id_user`,`login`, `type` FROM `users` WHERE `login` = '$l' AND `password` = '".md5($p)."' AND `active` = '1'";
     if ($result = $mysqli->query($query)) {
         $num_rows = $result->num_rows;
         if ($num_rows>0){

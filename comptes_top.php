@@ -41,7 +41,7 @@ function getusers(){
 
 function insert($login,$password,$active){
     $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
-    $query = "INSERT INTO `mc`.`users` (`id_user`, `login`, `password`, `datetime`, `type`, `active`) VALUES (NULL, '$login', '$password', CURRENT_TIMESTAMP, '0', '$active')";
+    $query = "INSERT INTO `mc`.`users` (`id_user`, `login`, `password`, `datetime`, `type`, `active`) VALUES (NULL, '$login', '".md5($password)."', CURRENT_TIMESTAMP, '0', '$active')";
     $mysqli->query($query);
     $mysqli->close();
 }
@@ -51,7 +51,7 @@ function update($update_id,$password,$active){
     if($password==''){
         $query = "UPDATE `mc`.`users` SET `active` = '$active' WHERE `id_user` = '$update_id'";   
     }else{
-        $query = "UPDATE `mc`.`users` SET `password` = '$password', `active` = '$active' WHERE `id_user` = '$update_id'";
+        $query = "UPDATE `mc`.`users` SET `password` = '".md5($password)."', `active` = '$active' WHERE `id_user` = '$update_id'";
     }
     $mysqli->query($query);
     $mysqli->close();
