@@ -315,6 +315,16 @@ include_once("includes/menu.php");
         }
         
     }
+    
+    function refresh_time(){
+        $("select#slt_date")[0].selectedIndex = 0;
+        var d = new Date();
+        var hour = d.getHours();
+        var min = d.getMinutes();
+        hour = hour+':';
+        if(hour.length==2){hour = '0'+hour;}
+        $("#txt_horaire").val(hour+min);
+    }
     </script>
 </head>
 <body>
@@ -462,6 +472,7 @@ include_once("includes/menu.php");
                                 <input type="hidden" name="datej" id="datej" value="<? print date("Y-m-d"); ?>" />
                                 <select id="slt_date" onchange="change_datej(this.value);"></select>
                                 <input type="text" name="txt_horaire" id="txt_horaire" value="<? print $time; ?>" size="5" maxlength="5" onblur="javascript:checkclock(this.value);"/>
+                                <img class="imgrefresh" src="img/refresh.png" onclick="refresh_time();" />
                             </td>
                         </tr>
                         <tr>
