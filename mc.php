@@ -323,6 +323,9 @@ include_once("includes/menu.php");
         var min = d.getMinutes();
         hour = hour+':';
         if(hour.length==2){hour = '0'+hour;}
+        min = min+'';
+        if(min.length==1){min = '0'+min;}
+     
         $("#txt_horaire").val(hour+min);
     }
     </script>
