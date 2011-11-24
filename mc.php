@@ -1,6 +1,8 @@
 <?
 include_once("mc_top.php");
 include_once("includes/menu.php");
+
+print ini_get('session.gc_maxlifetime');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -377,7 +379,7 @@ include_once("includes/menu.php");
                 <th>FPT 1</th>
                 <td><input type="text" size="5" maxlength="5" id="fpt1_kmd" name="fpt1_kmd" value="<? print getdata('fpt1_kmd',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
                 <td><input type="text" size="5" maxlength="5" id="fpt1_kma" name="fpt1_kma" value="<? print getdata('fpt1_kma',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
-                <td><input type="text" size="5" maxlength="5" id="fpt1_mot" name="fpt1_mot" value="<? print getdata('fpt1_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
+                <td><input tfype="text" size="5" maxlength="5" id="fpt1_mot" name="fpt1_mot" value="<? print getdata('fpt1_mot',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
                 <td><input type="text" size="5" maxlength="5" id="fpt1_frein" name="fpt1_frein" value="<? print getdata('fpt1_frein',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
                 <td><input type="text" size="5" maxlength="5" id="fpt1_rad" name="fpt1_rad" value="<? print getdata('fpt1_rad',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>
                 <td><input type="text" size="5" maxlength="5" id="fpt1_bat" name="fpt1_bat" value="<? print getdata('fpt1_bat',$edit) ?>" onblur="javascript:save_info(this.id,this.value)"/></td>

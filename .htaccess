@@ -1,0 +1,2 @@
+php_value session.gc_maxlifetime 90000
+php_value session.save_path "sessions"
