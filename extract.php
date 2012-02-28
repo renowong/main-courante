@@ -40,7 +40,7 @@ include_once("includes/menu.php");
     
         
     function sendtoextract(){
-	event.preventDefault();
+	//event.preventDefault();   --- does not work in firefox
 	var deb = $("#txt_beg").val();
 	var end = $("#txt_end").val();
 	
