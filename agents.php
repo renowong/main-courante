@@ -14,12 +14,17 @@ include_once("includes/menu.php");
     <script type="application/x-javascript" src="js/jquery.js"></script>
     <script type="application/x-javascript">
         $(document).ready(function () {
-            recap_agents();
+            recap_agents('1');
+            $("#slt_equipe").change(function(){
+                //alert($("#slt_equipe").val());
+                recap_agents($("#slt_equipe").val());
+                });
+            
         });
         
     
-        function recap_agents(){
-            $("<div>").load("recap_agents.php", function(){
+        function recap_agents(eq){
+            $("<div>").load("recap_agents.php?eq="+eq, function(){
             $("#list_agents").html($(this));
             });
         }
