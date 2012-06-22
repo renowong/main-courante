@@ -26,6 +26,7 @@ if(isset($_GET['date'])){
                 $todaymc .= "<tr><td class='right'><a href='javascript:showmcd(".$row["id_mc"].");'>".rev_date($row["date"])."</a></td><td>$editlink</td></tr>";
                 $row = $result->fetch_assoc();
                 if($row["date"]==$yesterday){
+                    $editlink="<a href='javascript:redirect2mc(".$row["id_mc"].")'><button>Editer</button></a>";
                     $todaymc .= "<tr><td class='right'><a href='javascript:showmcd(".$row["id_mc"].");'>".rev_date($row["date"])."</a></td><td>$editlink</td></tr>";
                 }
                 $todaymc .= "</table>";
