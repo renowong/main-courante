@@ -51,8 +51,8 @@ include_once("includes/menu.php");
     <? print $menu; ?>
     <h1>Liste des MC</h1>
     <form id="frm_control">
-        <button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
-        | Rechercher &agrave; partir de : <input type="text" size="10" maxlength="10" id="txt_search" READONLY />
+        
+        Afficher &agrave; partir de : <input type="text" size="10" maxlength="10" id="txt_search" READONLY />
     <script language="JavaScript">
 	new tcal ({
 		// form name
@@ -63,6 +63,8 @@ include_once("includes/menu.php");
 
 	</script>
     <button type="button" onclick="javascript:redirect2date(document.getElementById('txt_search').value);">Rechercher</button>
+    <br/><br/>
+    <button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
     </form>
     <div id="list"><? print $listmc; ?></div>
     <hr/>

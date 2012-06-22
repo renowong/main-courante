@@ -103,3 +103,15 @@ td {
 .imgrefresh {
     vertical-align : middle;
 }
+
+.right {
+    text-align : right;
+}
+
+#mcd {
+    width : 200px;
+}
+
+#archive {
+    width : 300px;
+}
