@@ -68,7 +68,7 @@ include_once("includes/menu.php");
     </form>
     <div id="list"><? print $listmc; ?></div>
     <hr/>
-    <div id="mcd">
+    <div id="mcd" style="width:100%;">
     </div>
 </body>
 </html>
