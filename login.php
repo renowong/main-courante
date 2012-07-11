@@ -2,10 +2,11 @@
 session_destroy();
 session_start();
 include_once("includes/global_vars.php");
+//header('Content-type: text/json');
 
-if (isset($_POST['txt_login'])){
-    $login = $_POST['txt_login'];
-    $password = $_POST['txt_password'];
+if (isset($_POST['login'])){
+    $login = $_POST['login'];
+    $password = $_POST['password'];
     
     login($login,$password);
 }
@@ -27,7 +28,9 @@ function login($l, $p){
     $mysqli->close();
      
     if($clear){
-        header('Location: mc_list.php'); 
+        print '{"autorise":"True"}';
+    } else {
+        print '{"autorise":"False"}';
     }
 }
 

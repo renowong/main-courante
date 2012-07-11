@@ -15,13 +15,13 @@ padding: 2px 0.5em;
 text-decoration: none;
 float: left;
 color: black;
-background-color: #FFF2BF;
-border: 2px solid #FFF2BF;
+background-color: #FECE2F;
+border: 2px solid #FECE2F;
 }
 
 .hovermenu ul li a:hover{
-background-color: #FFE271;
-border-style: outset;
+background-color: #D19405;
+border-style: solid;
 }
 
 html>body .hovermenu ul li a:active{ /* Apply mousedown effect only to NON IE browsers */
