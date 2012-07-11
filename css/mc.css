@@ -59,11 +59,6 @@ form {
     font-size : 12px;
 }
 
-a {
-    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
-    font-size : 12px;
-}
-
 label{
     font-weight:bold;
 }
@@ -150,3 +145,18 @@ select {
 	z-index:1;
 	display:none;
 	}
+        
+/*////////PSEUDO AND SPECIFICS/////////////////////////*/
+a:link, a:visited {
+	font-size:12px;
+	font-weight:normal;
+	text-decoration:none;
+	color:blue;
+}
+
+a:hover{
+	font-size:12px;
+	font-weight:normal;
+	text-decoration:underline;
+	color:red;
+}

@@ -48,13 +48,21 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <div name="message" id="message" ></div>
-    <table>
-	<th>Liste des MC</th>
-	<tr>
-	    <td>
-		<button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button> |
+    <table style="width:50em;">
+	<th>
+	    <table class="innertable" style="width:100%;background-color:inherit;border:0px;">
+		<tr>
+		    <th>Liste des MC</th>
+		    <td style="text-align:right;">
 		Afficher &agrave; partir de :<input type="text" size="10" maxlength="10" id="txt_search" />
 		<button type="button" onclick="javascript:redirect2date($('#txt_search').val());">Rechercher</button>
+		    </td>
+		</tr>
+	    </table>
+	</th>
+	<tr>
+	    <td>
+		<button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
 	    </td>
 	</tr>
 	<tr>
