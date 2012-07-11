@@ -21,7 +21,7 @@ include_once("headers.php");
         })
         
         $( "#dialog-form" ).dialog({
-                height: 180,
+                height: 380,
                 width: 320,
                 modal: false,
                 resizable: false,
@@ -63,14 +63,19 @@ include_once("headers.php");
 </script>
 </head>
 <body style="text-align:center;">
-    <br/> <br/>
-    <img src="img/logo.png"/>
     <div name="message" id="message" ></div>
         <div id="dialog-form" title="Main courante">
-                <form style="text-align:right;">
-                        Utilisateur : <input type="text" name="txt_login" id="txt_login" value="" maxlength="10" size="20" autocomplete="off" /><br/><br/>
-                        Mot de passe : <input type="password" name="txt_password" id="txt_password" value="" maxlength="10" size="20" autocomplete="off" />
-                </form>
+            <img src="img/logo.png"/>
+                <table class="innertable" style="margin:auto;">
+                    <tr>
+                        <td>Utilisateur :</td>
+                        <td><input type="text" name="txt_login" id="txt_login" value="" maxlength="10" size="20" autocomplete="off" /></td>
+                    </tr>
+                    <tr>
+                        <td>Mot de passe :</td>
+                        <td><input type="password" name="txt_password" id="txt_password" value="" maxlength="10" size="20" autocomplete="off" /></td>
+                    </tr>
+                </table>
         </div>
 </body>
 </html>
