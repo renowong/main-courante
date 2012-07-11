@@ -22,18 +22,25 @@ function login($l, $p){
             $row = $result->fetch_assoc();
             $_SESSION['usertype'] = $row["type"];
             $_SESSION['id_user'] = $row["id_user"];
-            $type = $row["type"];
-            $id_user = $row["id_user"];
         }
     }
     $result->free();
     $mysqli->close();
      
     if($clear){
+        setlogintime($_SESSION['id_user']);
         print '{"autorise":"True"}';
     } else {
         print '{"autorise":"False"}';
     }
+}
+
+function setlogintime($id){
+    $mysqli = new mysqli(HOST, DBUSER, DBPASSWORD, DB);
+    $now = date('Y-m-d H:i:s');
+    $query = "UPDATE `users` SET `datetime`='$now' WHERE `id_user` = '$id'";
+    $mysqli->query($query);
+    $mysqli->close();
 }
 
 ?>
