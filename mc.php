@@ -80,7 +80,7 @@ include_once("includes/menu.php");
             return false;
          }
      });
-        Togglecookie();
+        setTimeout("Togglecookie()",500);
     });
     
     function Togglecookie(){
