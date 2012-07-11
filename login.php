@@ -20,8 +20,8 @@ function login($l, $p){
         if ($num_rows>0){
             $clear=true;
             $row = $result->fetch_assoc();
-            //$_SESSION['usertype'] = $row["type"];
-            //$_SESSION['id_user'] = $row["id_user"];
+            $_SESSION['usertype'] = $row["type"];
+            $_SESSION['id_user'] = $row["id_user"];
             $type = $row["type"];
             $id_user = $row["id_user"];
         }
@@ -30,7 +30,7 @@ function login($l, $p){
     $mysqli->close();
      
     if($clear){
-        print '{"autorise":"True","usertype":"'.$type.'","iduser":"'.$id_user.'"}';
+        print '{"autorise":"True"}';
     } else {
         print '{"autorise":"False"}';
     }

@@ -3,13 +3,6 @@ session_start();
 include_once("includes/global_vars.php");
 include_once("includes/global_functions.php");
 
-if(isset($_GET['id_user'])){
-    $_SESSION['id_user'] = $_GET['id_user'];
-}
-if(isset($_GET['type'])){
-    $_SESSION['usertype'] = $_GET['type'];
-}
-
 if(isset($_GET['date'])){
     $searchdate = "WHERE `date` <= '".rev_date($_GET['date'])."'";
 }
