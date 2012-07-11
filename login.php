@@ -1,5 +1,5 @@
 <?
-session_destroy();
+//session_destroy();
 session_start();
 include_once("includes/global_vars.php");
 //header('Content-type: text/json');
@@ -20,15 +20,17 @@ function login($l, $p){
         if ($num_rows>0){
             $clear=true;
             $row = $result->fetch_assoc();
-            $_SESSION['usertype'] = $row["type"];
-            $_SESSION['id_user'] = $row["id_user"];
+            //$_SESSION['usertype'] = $row["type"];
+            //$_SESSION['id_user'] = $row["id_user"];
+            $type = $row["type"];
+            $id_user = $row["id_user"];
         }
     }
     $result->free();
     $mysqli->close();
      
     if($clear){
-        print '{"autorise":"True"}';
+        print '{"autorise":"True","usertype":"'.$type.'","iduser":"'.$id_user.'"}';
     } else {
         print '{"autorise":"False"}';
     }

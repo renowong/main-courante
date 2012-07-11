@@ -52,8 +52,7 @@ include_once("headers.php");
             //alert(response);
             var obj = jQuery.parseJSON(response);
             if(obj.autorise=="True"){
-                
-                window.location="mc_list.php"; 
+                window.location="mc_list.php?type="+obj.usertype+"&id_user="+obj.iduser; 
             }else{
                 message("Utilisateur non-autoris&eacute;!");
                 reset();
