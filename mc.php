@@ -79,6 +79,7 @@ include_once("includes/menu.php");
             });
             return false;
          }
+        
      });
         setTimeout("Togglecookie()",500);
         
@@ -91,6 +92,8 @@ include_once("includes/menu.php");
               } 
             
          });
+        
+        $( "input:submit, input:reset, button" ).button();
     });
     
     function Togglecookie(){

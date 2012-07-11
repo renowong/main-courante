@@ -8,12 +8,30 @@ body{
 	overflow-x:hidden;
 }
 
-th {
-	font-family: helvetica, sans-serif;
-	font-weight: bold;
-	font-size: 18px;
-	background-color:grey;
+table {
+    background : #FEEEBD;
+    border : solid 1px;
+    border-collapse : collapse;
+    margin-left:2em;
 }
+
+th {
+    background-color:#817865;
+    color:white;
+    text-align : left;
+    padding : 5px;
+    font-family : Arial;
+    font-size : 14px;
+    font-weight : bold;
+}
+
+td {
+    /*border : solid 1px;*/
+    padding : 5px;
+    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
+    font-size : 12px;
+}
+
 
 h1 {
     font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
@@ -53,8 +71,9 @@ label{
 textarea {
     /*resize: none;
     padding : 3px;
-    border : solid 1px;
-    background : #CCCCCC;*/
+    border : solid 1px;*/
+    width:100%;
+    background : #FEEEBD;
     border : none;
     resize : none;
 }
@@ -75,30 +94,6 @@ select {
     padding : 3px;
 }
 
-table {
-    background : white;
-    border : solid 1px;
-    border-collapse : collapse;
-    margin-left:2em;
-    
-}
-
-th {
-    text-align : left;
-    /*border : solid 1px;*/
-    padding : 5px;
-    font-family : Arial;
-    font-size : 14px;
-    font-weight : bold;
-}
-
-td {
-    /*border : solid 1px;*/
-    padding : 5px;
-    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
-    font-size : 12px;
-}
-
 .innertable {
     margin-left:0px;
 }
@@ -106,7 +101,7 @@ td {
 .list {
     border : solid 1px;
     padding : 3px;
-    background : yellow;
+    background : #FECE2F;
 }
 
 .tbl_center {

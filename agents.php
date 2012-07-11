@@ -16,6 +16,7 @@ include_once("includes/menu.php");
                 recap_agents($("#slt_equipe").val());
                 });
             
+            $( "input:submit, input:reset, button" ).button();
         });
         
     

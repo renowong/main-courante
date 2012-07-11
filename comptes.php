@@ -38,7 +38,8 @@ include_once("includes/menu.php");
                });
                return false;
             }
-        });   
+        });
+        $( "input:submit, input:reset, button" ).button();
      });
         
         function check_passwords(){

@@ -14,11 +14,11 @@ include_once("includes/menu.php");
     $(document).ready(function () {
 	$("#txt_beg").datepicker({inline: true,minDate: "-1Y",maxDate: "0"});
 	$("#txt_end").datepicker({inline: true,minDate: "-1Y",maxDate: "0"});
+	$( "input:submit, input:reset, button" ).button();
     });
     
         
     function sendtoextract(){
-	//event.preventDefault();   --- does not work in firefox
 	var deb = $("#txt_beg").val();
 	var end = $("#txt_end").val();
 	
@@ -42,12 +42,10 @@ include_once("includes/menu.php");
 	<th>Module d'extraction</th>
 	<tr>
 	    <td>
-		<form id="frm_control" method="post" action="extract_to_file.php">
 		       Extraire rapport &agrave; partir de (inclusif) : <input type="text" size="10" maxlength="10" id="txt_beg" />
 		   &agrave;
 		   <input type="text" size="10" maxlength="10" id="txt_end" />
-		   <input type="button" value="Extraire" onclick="javascript:sendtoextract();"/>
-		</form>
+		   <button onclick="javascript:sendtoextract();">Extraire</button>
 	    </td>
 	</tr>
     </table>
