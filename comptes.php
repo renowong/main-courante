@@ -7,7 +7,7 @@ include_once("includes/menu.php");
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui ?>
+<?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui.$message_div ?>
     <script type="application/x-javascript">
     $(document).ready(function () {  
         
@@ -33,8 +33,8 @@ include_once("includes/menu.php");
                    active: active,
                    submit: 1
                } ,function() {
-                   alert("Utilisateur ajout\351/mis a jour.");
-                   window.location.reload();
+                   message("Utilisateur ajout\351/mis a jour.");
+                   //window.location.reload();
                });
                return false;
             }
@@ -46,14 +46,14 @@ include_once("includes/menu.php");
                 if($("#txt_password").val()===$("#txt_password2").val() && $("#txt_password").val().length !=0){
                     return true;
                 } else {
-                    alert("Les mots de passes ne correspondent pas ou sont vides");
+                    message("Les mots de passes ne correspondent pas ou sont vides");
                     return false;   
                 }
             }else{
                 if($("#txt_password").val()===$("#txt_password2").val()){
                     return true;
                 } else {
-                    alert("Les mots de passes ne correspondent pas");
+                    message("Les mots de passes ne correspondent pas");
                     return false;   
                 }
             }
@@ -61,7 +61,7 @@ include_once("includes/menu.php");
         
         function check_login(){
             if($("#txt_login").val()===''){
-                alert("Veuillez entrer un login.");
+                message("Veuillez entrer un login.");
                 return false;
             } else {
                 return true;
@@ -91,6 +91,7 @@ include_once("includes/menu.php");
 </head>
 <body>
     <? print $menu; ?>
+    <div name="message" id="message" ></div>
     <form id="frm_compte" action="<?php print $_SERVER['PHP_SELF'];?>" method="POST" autocomplete="OFF">
         <input type="hidden" name="hid_id" id="hid_id" value="<? print $id_user; ?>" />
         <? print $listusers; ?>

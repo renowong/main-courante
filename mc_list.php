@@ -7,7 +7,8 @@ include_once("includes/menu.php");
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui ?>
+<?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui.$message_div ?>
+    <script type="text/javascript" src="js/jquery.ui.datepicker-fr.js"></script>
     <script type="application/x-javascript">
     $(document).ready(function () {
 	
@@ -18,9 +19,9 @@ include_once("includes/menu.php");
 	    url = '';
 	}
 	if(url != ''){
-	    alert("Veuillez cl\364turer la pr\351c\351dente MC avant de continuer.");
+	    message("Veuillez cl\364turer la pr\351c\351dente MC avant de continuer.");
 	}
-    
+	$("#txt_search").datepicker({inline: true,minDate: "-1Y",maxDate: "0"});
     });
       
         function showmcd(id){
@@ -37,28 +38,26 @@ include_once("includes/menu.php");
             window.location = "mc_list.php?date="+date;
         }
     </script>
-    
-        <!-- link calendar files  -->
-	<script language="JavaScript" src="js/calendar_eu.js"></script>
-	<link rel="stylesheet" href="css/calendar.css">
-            
 </head>
 <body>
     <? print $menu; ?>
+    <div name="message" id="message" ></div>
     <h1>Liste des MC</h1>
     <form id="frm_control">
         
-        Afficher &agrave; partir de : <input type="text" size="10" maxlength="10" id="txt_search" READONLY />
-    <script language="JavaScript">
-	new tcal ({
-		// form name
-		'formname': 'frm_control',
-		// input name
-		'controlname': 'txt_search'
-	});
-
-	</script>
-    <button type="button" onclick="javascript:redirect2date(document.getElementById('txt_search').value);">Rechercher</button>
+        Afficher &agrave; partir de :<input type="text" size="10" maxlength="10" id="txt_search" />
+	
+<!--	<input type="text" size="10" maxlength="10" id="txt_search" READONLY />-->
+<!--    <script language="JavaScript">-->
+<!--	new tcal ({-->
+<!--		// form name-->
+<!--		'formname': 'frm_control',-->
+<!--		// input name-->
+<!--		'controlname': 'txt_search'-->
+<!--	});-->
+<!---->
+<!--	</script>-->
+    <button type="button" onclick="javascript:redirect2date($('#txt_search').val());">Rechercher</button>
     <br/><br/>
     <button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
     </form>

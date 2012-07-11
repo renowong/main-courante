@@ -13,7 +13,7 @@ function get_agents($eq){
     $output ="<table><th>Agent</th><th>Equipe</th><th>Action</th>";
     if ($result = $mysqli->query($query)) {
         while($row = $result->fetch_assoc()){
-            $output .= "<tr id='".$row['id_agent']."'><td>".$row['agent']."</td><td>".$row['designation']."</td><td><a href='javascript:radier(\"".$row['id_agent']."\")'><img class='imgtrash' src='img/trash.png'>Radier</a></td></tr>";
+            $output .= "<tr id='".$row['id_agent']."'><td>".casefix($row['agent'])."</td><td>".$row['designation']."</td><td><a href='javascript:radier(\"".$row['id_agent']."\")'><img class='imgtrash' src='img/trash.png'>Radier</a></td></tr>";
         }
     }
     $result->free();
@@ -21,6 +21,11 @@ function get_agents($eq){
      
     $output .="</table>";
     return $output;
+}
+
+function casefix($name){
+    $ar_name = explode(" ",$name);
+    return strtoupper($ar_name[0])." ".ucfirst(strtolower($ar_name[1]));
 }
 
 ?>

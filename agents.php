@@ -7,7 +7,7 @@ include_once("includes/menu.php");
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui ?>
+    <?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui.$message_div ?>
     <script type="application/x-javascript">
         $(document).ready(function () {
             recap_agents('1');
@@ -29,13 +29,17 @@ include_once("includes/menu.php");
             var name = $('#txt_agent').val();
             var equipe = $('#slt_equipe').val();
             var url = 'submit_agent.php';
-            // Send the data using post and put the results in a div
-            $.post( url, {type: 'ajout', agent: name,equipe: equipe},function(response) {
-            //readresponse(response);
-            //alert(response);
-            recap_agents();
-         //},"xml");
-            });
+            
+            if(name.length>0){
+                $.post( url, {type: 'ajout', agent: name,equipe: equipe},function(response) {
+                //readresponse(response);
+                //alert(response);
+                recap_agents();
+                });
+            }else{
+                message("Veuillez entrer un nom!");
+            }
+            
         }
         
         function radier(id){
@@ -55,6 +59,7 @@ include_once("includes/menu.php");
 </head>
 <body>
     <? print $menu; ?>
+    <div name="message" id="message" ></div>
     <h1>Liste des Agents</h1>
     <table border="1">
         <tr>

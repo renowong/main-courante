@@ -5,6 +5,7 @@ body{
     height : 95%;
     background-color : #167EAB;
     background:url(../img/bg.png) no-repeat fixed top;
+    margin:auto;
 }
 
 h1 {
@@ -116,3 +117,18 @@ td {
 #archive {
     width : 300px;
 }
+
+#message {
+	position:absolute;
+        top:0px;
+	font-family:arial,tahoma;
+	font-size:12px;
+	font-weight:bold;
+        text-align:center;
+	border-top:solid 2px #999999;
+	border-bottom:solid 2px #999999;
+	background-color:yellow;
+	width:100%;
+	z-index:1;
+	display:none;
+	}
