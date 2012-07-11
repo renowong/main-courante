@@ -4,6 +4,7 @@ body{
     width : 100%;
     height : 95%;
     background-color : #167EAB;
+    background:url(../img/bg.png) no-repeat fixed top;
 }
 
 h1 {

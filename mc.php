@@ -1,4 +1,5 @@
 <?
+include_once("headers.php");
 include_once("mc_top.php");
 include_once("includes/menu.php");
 
@@ -8,12 +9,8 @@ include_once("includes/menu.php");
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-    <title>Saisie des MC</title>
-    <!-- Stylesheets -->
-    <style type="text/css">@import url("css/menu.css");</style>
-    <style type="text/css">@import url("css/mc.css");</style>
-    <!-- Javascripts -->
-    <script type="application/x-javascript" src="js/jquery.js"></script>
+    <?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui ?>
+
     <script type="application/x-javascript">
     $(document).ready(function () {
        

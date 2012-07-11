@@ -1,12 +1,12 @@
 <?
+include_once("headers.php");
 include_once("index_top.php");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Main courante</title>
-    <style type="text/css">@import url("css/mc.css");</style>
+<?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui ?>
 </head>
 <body style="text-align:center;">
     <br/> <br/>

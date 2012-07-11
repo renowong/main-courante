@@ -1,4 +1,5 @@
 <?
+include_once("headers.php");
 include_once("mc_list_top.php");
 include_once("includes/menu.php");
 ?>
@@ -6,12 +7,7 @@ include_once("includes/menu.php");
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Liste des MC</title>
-    <!-- Stylesheets -->
-    <style type="text/css">@import url("css/menu.css");</style>
-    <style type="text/css">@import url("css/mc.css");</style>
-    <!-- Javascripts -->
-    <script type="application/x-javascript" src="js/jquery.js"></script>
+<?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui ?>
     <script type="application/x-javascript">
     $(document).ready(function () {
 	
