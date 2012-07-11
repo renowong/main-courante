@@ -11,12 +11,12 @@ display: inline;
 }
 
 .hovermenu ul li a{
-padding: 2px 0.5em;
+padding: 2px 1em;
 text-decoration: none;
 float: left;
 color: black;
 background-color: #FECE2F;
-border: 2px solid #FECE2F;
+border: 1px solid #000;
 }
 
 .hovermenu ul li a:hover{

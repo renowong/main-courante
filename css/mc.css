@@ -129,6 +129,10 @@ td {
     text-align : right;
 }
 
+.center {
+    text-align:center;
+}
+
 #mcd {
     width : 200px;
 }
