@@ -35,7 +35,11 @@ include_once("includes/menu.php");
         }
         
         function redirect2date(date){
-            window.location = "mc_list.php?date="+date;
+	    if(date.length>0){
+		window.location = "mc_list.php?date="+date;
+	    }else{
+		message("Veuillez entrer une date pour la recherche!");
+	    }
         }
     </script>
 </head>

@@ -465,7 +465,7 @@ include_once("includes/menu.php");
         <tr>
             <td>
                 <form method="post" id="frm_mc" action="submit_mc.php">
-                    <table class="innertable">
+                    <table class="innertable" style="border:0px;margin-left:10px;">
                         <tr>
                             <td><h2>
                                 Horaire :
