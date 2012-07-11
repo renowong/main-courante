@@ -9,7 +9,7 @@ include_once("includes/menu.php");
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-    <?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui ?>
+    <?php echo $title.$icon.$charset.$nocache.$menucss.$defaultcss.$jquery.$jqueryui.$message_div.$jqueryrotate ?>
 
     <script type="application/x-javascript">
     $(document).ready(function () {
@@ -81,6 +81,16 @@ include_once("includes/menu.php");
          }
      });
         setTimeout("Togglecookie()",500);
+        
+        $("#imgrefresh").rotate({ 
+            bind: 
+              { 
+                 click: function(){
+                     $(this).rotate({ angle:0,animateTo:-360,easing: $.easing.easeInOutExpo })
+                 }
+              } 
+            
+         });
     });
     
     function Togglecookie(){
@@ -514,7 +524,7 @@ include_once("includes/menu.php");
                                 <input type="hidden" name="datej" id="datej" value="<? print date("Y-m-d"); ?>" />
                                 <select id="slt_date" onchange="change_datej(this.value);"></select>
                                 <input type="text" name="txt_horaire" id="txt_horaire" value="<? print $time; ?>" size="5" maxlength="5" onblur="javascript:checkclock(this.value);"/>
-                                <img class="imgrefresh" src="img/refresh.png" onclick="refresh_time();" />
+                                <img class="imgrefresh" id="imgrefresh" src="img/refresh.png" onclick="refresh_time();" />
                             </td>
                         </tr>
                         <tr>
