@@ -377,7 +377,7 @@ include_once("includes/menu.php");
     <h1 style="margin-left:2em;">Main Courante du <? print $date; ?></h1>
     <form id="premc">
         <table id="tbl_vehicule">
-            <th><a href='javascript:toggle("div_tbl_vehicule")'><img class='imgshowhide' id='div_tbl_vehicule_arrowup' src='img/arrow_up.png'/><img class='imgshowhide' id='div_tbl_vehicule_arrowdown' src='img/arrow_down.png'/></a>
+            <th style="width:100px;"><a href='javascript:toggle("div_tbl_vehicule")'><img class='imgshowhide' id='div_tbl_vehicule_arrowup' src='img/arrow_up.png'/><img class='imgshowhide' id='div_tbl_vehicule_arrowdown' src='img/arrow_down.png'/></a>
                 V&eacute;hicule</th><th style="width:75px;">Km D&eacute;part</th><th style="width:75px;">Km Arriv&eacute;</th><th style="width:75px;">Huile moteur</th><th style="width:75px;">Huile frein</th><th style="width:75px;">Radiateur</th><th style="width:75px;">Batterie</th><th style="width:75px;">Lavage</th><th style="width:75px;">Plein</th>
             <tr><td colspan="9">
             <div id="div_tbl_vehicule">
