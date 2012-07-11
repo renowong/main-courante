@@ -80,7 +80,28 @@ include_once("includes/menu.php");
             return false;
          }
      });
+        Togglecookie();
     });
+    
+    function Togglecookie(){
+        if(readCookie("div_tbl_vehicule")=="false"){
+            toggle("div_tbl_vehicule");
+        }
+        if(readCookie("div_tbl_indic")=="false"){
+            toggle("div_tbl_indic");
+        }
+    }
+    
+    function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+    }
     
     function load_available_dates(){
         var today = new Date();
@@ -257,10 +278,19 @@ include_once("includes/menu.php");
     
     function toggle(id){
         //var view = $("#"+id).is(":hidden");
-        $("#"+id).slideToggle();
+        $("#"+id).slideToggle(function() {
+            var today = new Date();
+            today.setTime( today.getTime() );
+            expires = 1000 * 60 * 60 * 12;
+            var expires_date = new Date( today.getTime() + (expires) );
+            document.cookie = "expires=" + expires_date.toGMTString();
+            document.cookie = "div_tbl_vehicule="+$("#div_tbl_vehicule").is(':visible');
+            document.cookie = "div_tbl_indic="+$("#div_tbl_indic").is(':visible');
+            //alert($(this).is(':visible'));
+            });
         $("#"+id+"_arrowup").slideToggle();
         $("#"+id+"_arrowdown").slideToggle();
-        
+
     }
     
     function load_agents(eq,field,idmc){
