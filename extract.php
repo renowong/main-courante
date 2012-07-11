@@ -38,11 +38,18 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <div name="message" id="message" ></div>
-    <form id="frm_control" method="post" action="extract_to_file.php">
-           Extraire rapport &agrave; partir de (inclusif) : <input type="text" size="10" maxlength="10" id="txt_beg" />
-       &agrave;
-       <input type="text" size="10" maxlength="10" id="txt_end" />
-       <input type="button" value="Extraire" onclick="javascript:sendtoextract();"/>
-    </form>
+    <table>
+	<th>Module d'extraction</th>
+	<tr>
+	    <td>
+		<form id="frm_control" method="post" action="extract_to_file.php">
+		       Extraire rapport &agrave; partir de (inclusif) : <input type="text" size="10" maxlength="10" id="txt_beg" />
+		   &agrave;
+		   <input type="text" size="10" maxlength="10" id="txt_end" />
+		   <input type="button" value="Extraire" onclick="javascript:sendtoextract();"/>
+		</form>
+	    </td>
+	</tr>
+    </table>
 </body>
 </html>

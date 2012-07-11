@@ -22,7 +22,7 @@ if(isset($_GET['date'])){
             
             if($row["date"]==$today){
                 $editlink="<a href='javascript:redirect2mc(".$row["id_mc"].")'><button>Editer</button></a>";
-                $todaymc .= "<table name='mcd' id='mc'><tr><th colspan='2'>Main courantes en cours</th></tr>";
+                $todaymc .= "<table name='mcd' id='mc' class='innertable'><tr><th colspan='2'>Main courantes en cours</th></tr>";
                 $todaymc .= "<tr><td class='right'><a href='javascript:showmcd(".$row["id_mc"].");'>".rev_date($row["date"])."</a></td><td>$editlink</td></tr>";
                 $row = $result->fetch_assoc();
                 if($row["date"]==$yesterday){
@@ -35,7 +35,7 @@ if(isset($_GET['date'])){
             
             if($row["date"]==$yesterday){
                 $editlink="<a href='javascript:redirect2mc(".$row["id_mc"].")'><button>Editer</button></a>";
-                $todaymc .= "<table name='mcd' id='mc'><tr><th colspan='2'>Main courante en cours</th></tr>";
+                $todaymc .= "<table name='mcd' id='mc' class='innertable'><tr><th colspan='2'>Main courante en cours</th></tr>";
                 $todaymc .= "<tr><td class='right'><a href='javascript:showmcd(".$row["id_mc"].");'>".rev_date($row["date"])."</a></td><td>$editlink</td></tr>";
                 $todaymc .= "</table>";
             }
@@ -52,7 +52,7 @@ if(isset($_GET['date'])){
     $listmc=substr($listmc,0,-4);
     $listmc .= "</table>";
     
-    $listmc = "<table><tr><td style='vertical-align : top;'>".$todaymc."</td><td>".$listmc."</td></tr><table>";
+    $listmc = "<table style=\"border:0px;\" class=\"innertable\"><tr><td style='vertical-align : top;'>".$todaymc."</td><td>".$listmc."</td></tr></table>";
     $mysqli->close();
     
 

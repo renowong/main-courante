@@ -60,10 +60,11 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <div name="message" id="message" ></div>
-    <h1>Liste des Agents</h1>
-    <table border="1">
+    
+    <table>
+        <th>Gestion des Agents</th>
         <tr>
-            <td colspan="2">Equipe : 
+            <td>Equipe : 
                 <select id="slt_equipe">
                     <? print $list_equipe ?>
                 </select>

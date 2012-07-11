@@ -1,16 +1,29 @@
 body{
-    position : absolute;
-    top : 0px;
-    width : 100%;
-    height : 95%;
-    background-color : #167EAB;
-    background:url(../img/bg.png) no-repeat fixed top;
-    margin:auto;
+	margin:0px;
+	height:100%;
+	background:url(../img/bg.png) no-repeat fixed top;
+	font-family: helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+	overflow-x:hidden;
+}
+
+th {
+	font-family: helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	background-color:grey;
 }
 
 h1 {
     font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
     font-size : 18px;
+
+}
+
+h2 {
+    font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
+    font-size : 14px;
 
 }
 
@@ -66,6 +79,8 @@ table {
     background : white;
     border : solid 1px;
     border-collapse : collapse;
+    margin-left:2em;
+    
 }
 
 th {
@@ -73,7 +88,7 @@ th {
     /*border : solid 1px;*/
     padding : 5px;
     font-family : Arial;
-    font-size : 12px;
+    font-size : 14px;
     font-weight : bold;
 }
 
@@ -82,6 +97,10 @@ td {
     padding : 5px;
     font-family : Arial,DejaVu Sans,Liberation Sans,Freesans,sans-serif;
     font-size : 12px;
+}
+
+.innertable {
+    margin-left:0px;
 }
 
 .list {

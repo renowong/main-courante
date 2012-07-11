@@ -42,26 +42,21 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <div name="message" id="message" ></div>
-    <h1>Liste des MC</h1>
-    <form id="frm_control">
-        
-        Afficher &agrave; partir de :<input type="text" size="10" maxlength="10" id="txt_search" />
-	
-<!--	<input type="text" size="10" maxlength="10" id="txt_search" READONLY />-->
-<!--    <script language="JavaScript">-->
-<!--	new tcal ({-->
-<!--		// form name-->
-<!--		'formname': 'frm_control',-->
-<!--		// input name-->
-<!--		'controlname': 'txt_search'-->
-<!--	});-->
-<!---->
-<!--	</script>-->
-    <button type="button" onclick="javascript:redirect2date($('#txt_search').val());">Rechercher</button>
-    <br/><br/>
-    <button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button>
-    </form>
-    <div id="list"><? print $listmc; ?></div>
+    <table>
+	<th>Liste des MC</th>
+	<tr>
+	    <td>
+		<button type="button" onclick="javascript:redirect2mc(0);">Cr&eacute;er une nouvelle mc</button> |
+		Afficher &agrave; partir de :<input type="text" size="10" maxlength="10" id="txt_search" />
+		<button type="button" onclick="javascript:redirect2date($('#txt_search').val());">Rechercher</button>
+	    </td>
+	</tr>
+	<tr>
+	    <td>
+		<div id="list"><? print $listmc; ?></div>
+	    </td>
+	</tr>
+    </table>
     <hr/>
     <div id="mcd" style="width:100%;">
     </div>

@@ -92,53 +92,60 @@ include_once("includes/menu.php");
 <body>
     <? print $menu; ?>
     <div name="message" id="message" ></div>
-    <form id="frm_compte" action="<?php print $_SERVER['PHP_SELF'];?>" method="POST" autocomplete="OFF">
-        <input type="hidden" name="hid_id" id="hid_id" value="<? print $id_user; ?>" />
-        <? print $listusers; ?>
-        <table>
+    <table>
+        <th>Gestion de compte</th>
         <tr>
             <td>
-                Compte Actif :
-            </td>
-            <td>
-                <input type="checkbox" id="chk_active"<? print $checkactive.$lock; ?> />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Login :
-            </td>
-            <td>
-                <input type="text" id="txt_login" name="txt_login" size="20" maxlength="20" value="<? print $login; ?>" disabled="disabled" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Mot de passe :
-            </td>
-            <td>
-                <input type="password" id="txt_password" name="txt_password" size="20" maxlength="20" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Mot de passe (confirmation):
-            </td>
-            <td>
-                <input type="password" id="txt_password2" name="txt_password2" size="20" maxlength="20" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p style="font-style:italic">** Laisser les mots de passes vides pour garder le mot de passe actuel.</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-               <button type="button" onclick="javascript:newuser();"<? print $lock; ?>>Nouvel Utilisateur</button> <button type="button" onclick="javascript:window.location.reload();">RAZ</button> <button type="submit">Soumettre</button>
+                <form id="frm_compte" action="<?php print $_SERVER['PHP_SELF'];?>" method="POST" autocomplete="OFF">
+                    <input type="hidden" name="hid_id" id="hid_id" value="<? print $id_user; ?>" />
+                    <? print $listusers; ?>
+                    <table class="innertable">
+                    <tr>
+                        <td>
+                            Compte Actif :
+                        </td>
+                        <td>
+                            <input type="checkbox" id="chk_active"<? print $checkactive.$lock; ?> />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Login :
+                        </td>
+                        <td>
+                            <input type="text" id="txt_login" name="txt_login" size="20" maxlength="20" value="<? print $login; ?>" disabled="disabled" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mot de passe :
+                        </td>
+                        <td>
+                            <input type="password" id="txt_password" name="txt_password" size="20" maxlength="20" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mot de passe (confirmation):
+                        </td>
+                        <td>
+                            <input type="password" id="txt_password2" name="txt_password2" size="20" maxlength="20" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p style="font-style:italic">** Laisser les mots de passes vides pour garder le mot de passe actuel.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                           <button type="button" onclick="javascript:newuser();"<? print $lock; ?>>Nouvel Utilisateur</button> <button type="button" onclick="javascript:window.location.reload();">RAZ</button> <button type="submit">Soumettre</button>
+                        </td>
+                    </tr>
+                </table>
+                </form>
             </td>
         </tr>
     </table>
-    </form>
 </body>
 </html>
