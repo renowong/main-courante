@@ -19,7 +19,7 @@ $designation = htmlentities ($_POST["txt_designation"],ENT_QUOTES,'UTF-8');
 $idmc = $_POST["idmc"];
 $date = $_POST["datej"];
 $id_agent = $_POST["id_agent"];
-$val = $_POST["val"];
+$val = htmlentities ($_POST["val"],ENT_QUOTES,'UTF-8');
 $del = $_POST["del"];
 $id_user = $_SESSION['id_user'];
 
