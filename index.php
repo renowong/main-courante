@@ -33,7 +33,7 @@ include_once("headers.php");
                                 reset();
                         }
                 },
-                beforeclose : function() { return false; }
+                beforeclose : function() { window.close(); }
         });
         $('#txt_login').focus();
     });
