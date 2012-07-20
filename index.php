@@ -1,4 +1,7 @@
 <?
+session_start();
+session_unset();
+session_destroy();
 include_once("headers.php");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
