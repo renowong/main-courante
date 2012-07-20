@@ -3,6 +3,8 @@ session_start();
 include_once("includes/global_vars.php");
 include_once("includes/global_functions.php");
 
+if($_SESSION['id_user']==""){header("Location: index.php");}
+
 if(isset($_GET['date'])){
     $searchdate = "WHERE `date` <= '".rev_date($_GET['date'])."'";
 }
