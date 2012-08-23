@@ -1,5 +1,6 @@
 <?
 include_once("includes/global_vars.php");
+if($_COOKIE['id_user']==""){header("Location: index.php");}
 
 $list_equipe = list_equipes();
 

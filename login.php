@@ -1,6 +1,6 @@
 <?
 //session_destroy();
-session_start();
+//session_start();
 include_once("includes/global_vars.php");
 //header('Content-type: text/json');
 
@@ -20,15 +20,18 @@ function login($l, $p){
         if ($num_rows>0){
             $clear=true;
             $row = $result->fetch_assoc();
-            $_SESSION['usertype'] = $row["type"];
-            $_SESSION['id_user'] = $row["id_user"];
+            //$_SESSION['usertype'] = $row["type"];
+            //$_SESSION['id_user'] = $row["id_user"];
+            setcookie('usertype',$row["type"],time() + (86400 * 7), "/"); // 86400 = 1 day
+            setcookie('id_user',$row["id_user"],time() + (86400 * 7), "/"); // 86400 = 1 day
+            
         }
     }
     $result->free();
     $mysqli->close();
      
     if($clear){
-        setlogintime($_SESSION['id_user']);
+        setlogintime($_COOKIE['id_user']);
         print '{"autorise":"True"}';
     } else {
         print '{"autorise":"False"}';

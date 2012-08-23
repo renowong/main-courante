@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include_once("includes/global_vars.php");
 include_once("includes/global_functions.php");
 
@@ -33,7 +33,7 @@ $sql_date = getmcdate($edit);
 $date = rev_date($sql_date);
 $time = date("H:i");
 
-if($_SESSION['usertype']!=='1'){checkrights($sql_date);}
+if($_COOKIE['usertype']!=='1'){checkrights($sql_date);}
 
 function checkrights($sql_date){
     $today = (date("Y-m-d"));

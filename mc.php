@@ -2,7 +2,6 @@
 include_once("headers.php");
 include_once("mc_top.php");
 include_once("includes/menu.php");
-
 //print ini_get('session.gc_maxlifetime');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -52,33 +51,39 @@ include_once("includes/menu.php");
      $("#frm_mc").submit(function(event){
          // stop form from submitting normally
          event.preventDefault();
-         if(check_mandatory_fields()){
-            var $form = $( this ),
-            txt_horaire = $form.find( 'input[name="txt_horaire"]' ).val(),
-            idmc = $form.find( 'input[name="idmc"]' ).val(),
-            datej = $form.find( 'input[name="datej"]' ).val(),
-            slt_inter = $('#slt_inter').val(),
-            txt_designation = $('#txt_designation').val(),
-            url = $form.attr( 'action' );
-            
-   
-            // Send the data using post and put the results in a div
-            $.post( url, {
-                update: 1,
-                txt_horaire: txt_horaire,
-                idmc: idmc,
-                datej: datej,
-                slt_inter: slt_inter,
-                txt_designation: txt_designation
-            } ,function(response) {
-                readresponse(response);
-                //alert(response);
-                recap_mc("mcj",idmc);
-                $('#txt_designation').val("");
-            //},"xml");
-            });
-            return false;
-         }
+        
+         if(readCookie("id_user")==null){
+            alert("Session Expir\351e!");
+            window.location="index.php";
+            }else{
+                if(check_mandatory_fields()){
+                   var $form = $( this ),
+                   txt_horaire = $form.find( 'input[name="txt_horaire"]' ).val(),
+                   idmc = $form.find( 'input[name="idmc"]' ).val(),
+                   datej = $form.find( 'input[name="datej"]' ).val(),
+                   slt_inter = $('#slt_inter').val(),
+                   txt_designation = $('#txt_designation').val(),
+                   url = $form.attr( 'action' );
+                   
+          
+                   // Send the data using post and put the results in a div
+                   $.post( url, {
+                       update: 1,
+                       txt_horaire: txt_horaire,
+                       idmc: idmc,
+                       datej: datej,
+                       slt_inter: slt_inter,
+                       txt_designation: txt_designation
+                   } ,function(response) {
+                       readresponse(response);
+                       //alert(response);
+                       recap_mc("mcj",idmc);
+                       $('#txt_designation').val("");
+                   //},"xml");
+                   });
+                   return false;
+                }                
+            }
         
      });
         setTimeout("Togglecookie()",500);
@@ -96,6 +101,7 @@ include_once("includes/menu.php");
         $( "input:submit, input:reset, button" ).button();
     });
     
+   
     function Togglecookie(){
         if(readCookie("div_tbl_vehicule")=="false"){
             toggle("div_tbl_vehicule");

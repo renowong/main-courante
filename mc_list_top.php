@@ -1,9 +1,9 @@
 <?php
-session_start();
+//session_start();
 include_once("includes/global_vars.php");
 include_once("includes/global_functions.php");
 
-if($_SESSION['id_user']==""){header("Location: index.php");}
+if($_COOKIE['id_user']==""){header("Location: index.php");}
 
 if(isset($_GET['date'])){
     $searchdate = "WHERE `date` <= '".rev_date($_GET['date'])."'";
@@ -42,7 +42,7 @@ if(isset($_GET['date'])){
                 $todaymc .= "</table>";
             }
             
-                if($_SESSION['usertype']=='1'){$editlink="<a href='javascript:redirect2mc(".$row["id_mc"].")'><button>Editer</button></a>";}else{$editlink="";}
+                if($_COOKIE['usertype']=='1'){$editlink="<a href='javascript:redirect2mc(".$row["id_mc"].")'><button>Editer</button></a>";}else{$editlink="";}
                 if($tr==2){$addtr="</tr><tr>";$tr=1;}else{$addtr="";$tr++;}
                 $listmc .= "<td style='text-align:center;'><a href='javascript:showmcd(".$row["id_mc"].");' title='Cliquez pour afficher'>".rev_date($row["date"])."</a></td><td>$editlink</td>".$addtr;
             

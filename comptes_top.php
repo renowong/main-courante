@@ -1,10 +1,11 @@
 <?
-session_start();
+//session_start();
 include_once("includes/global_vars.php");
+if($_COOKIE['id_user']==""){header("Location: index.php");}
 
-$usertype = $_SESSION['usertype'];
+$usertype = $_COOKIE['usertype'];
 if($usertype=='0'){$lock=' disabled="disabled"';}else{$lock='';$listusers=getusers();}
-$id_user = $_SESSION['id_user'];
+$id_user = $_COOKIE['id_user'];
 $data = getdata($id_user);
 $login = $data[0]['login'];
 $active = $data[0]['active'];

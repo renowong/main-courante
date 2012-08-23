@@ -1,5 +1,5 @@
 <?
-session_start();
+//session_start();
 
 include_once("headers.php");
 include_once("includes/menu.php");

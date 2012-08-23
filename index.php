@@ -1,7 +1,7 @@
 <?
-session_start();
-session_unset();
-session_destroy();
+setcookie('usertype','',time() - 3600, "/"); //expire cookie
+setcookie('id_user','',time() - 3600, "/");
+
 include_once("headers.php");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
