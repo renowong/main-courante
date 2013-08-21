@@ -21,7 +21,7 @@ include_once("includes/menu.php");
 	if(url != ''){
 	    message("Veuillez cl\364turer la pr\351c\351dente MC avant de continuer.");
 	}
-	$("#txt_search").datepicker({inline: true,minDate: "-1Y",maxDate: "0"});
+	$("#txt_search").datepicker({inline: true,minDate: "-10Y",maxDate: "0"});
 	
 	$( "input:submit, button" ).button();
     });
