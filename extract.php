@@ -12,8 +12,8 @@ include_once("includes/menu.php");
     <script type="text/javascript" src="js/jquery.ui.datepicker-fr.js"></script>
     <script type="application/x-javascript">
     $(document).ready(function () {
-	$("#txt_beg").datepicker({inline: true,minDate: "-1Y",maxDate: "0"});
-	$("#txt_end").datepicker({inline: true,minDate: "-1Y",maxDate: "0"});
+	$("#txt_beg").datepicker({inline: true,minDate: "-10Y",maxDate: "0"});
+	$("#txt_end").datepicker({inline: true,minDate: "-10Y",maxDate: "0"});
 	$( "input:submit, input:reset, button" ).button();
     });
     
